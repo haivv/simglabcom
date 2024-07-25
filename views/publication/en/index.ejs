@@ -1,0 +1,118 @@
+
+<%- include('header') %>
+    <section class="main-container">
+        <div class="main-title">
+            Innovative <span class="line-title">leading</span> the future <br>
+            Heavy equipment training VR content production
+        </div>
+    </section>
+
+    <section class="simulator-container">
+        <div class="simulator">
+            <iframe src="https://www.youtube.com/embed/0s0HKv3y2BU?si=_EvKoAiq7MBvcF4r&amp;start=33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="simulator-info">
+                <p class="simulator-type">Heavy Equipment Simulator</p>
+                <h3 class="simulator-title">Excavator simulator</h3>
+                <p class="simulator-description">You can learn excavator practice with simulation equipment.</p>
+                <a href="#" class="menu-detail-button">Read more</a>
+            </div>
+        </div>
+        <div class="simulator">
+            <iframe src="https://www.youtube.com/embed/0s0HKv3y2BU?si=_EvKoAiq7MBvcF4r&amp;start=84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="simulator-info">
+                <p class="simulator-type">Heavy Equipment Simulator</p>
+                <h3 class="simulator-title">Excavator simulator</h3>
+                <p class="simulator-description">You can learn excavator practice with simulation equipment.</p>
+                <a href="#" class="menu-detail-button">Read more</a>
+            </div>
+        </div>
+    </section>
+    <section class="client-container pb-5">
+        <div class="partnership-banner">
+            <div>
+                <div class="partnership-type">Selection project</div>
+                <div class="partnership-title">Providing customized solutions for experts in each field</div>
+                <div class="partnership-description">Provide customized innovation to businesses with the best solutions</div>
+            </div>
+            <a href="/partnership" class="partnership-detail-button">Read more</a>
+        </div>
+    </section>
+    <section class="news-container mt-3">
+        <div class="section-title">LATEST NEWS</div>
+        <p class="section-subtitle">Check out the updates and news from SimG, which is revolutionizing industrial safety with the latest technology..</p>
+        <button class="button-arrow" id="news-prev-button"><img src="../images/btn-arrow-left.png" alt="Before-News"></button>
+        <div class="news-wrapper">
+            <ul class="news-carousel">
+                 <% dataNews.forEach(function(news) { %>
+                <li class="news-item">
+                    <img src="../uploads/news/<%= news.news_cover_image %>" alt="News Image 1">
+                    <div class="news-content">
+                        <span class="news-category">&nbsp;</span>
+                        <span class="news-date"><%= news.news_date %></span>
+                        <div class="news-title"><%= news.news_title_en %></div>
+                        <p class="news-description">
+                            <% 
+                                var words = news.news_content_en.split(' ');
+                                var truncatedContent = words.slice(0, 9).join(' ');
+                                if (words.length > 9) {
+                                    truncatedContent += '...';
+                                }
+                                %> <%= truncatedContent %> <% 
+                           
+                            %>
+
+                        </p>
+                        <a href="#" class="news-detail-button">Read more</a>
+                    </div>
+                </li>
+                <% }); %>
+            </ul>
+        </div> 
+        <button class="button-arrow" id="news-next-button"><img src="../images/btn-arrow-right.png" alt="After-News"></button>
+    </section>
+
+    <section class="client-container">
+        <div class="section-title">OUR CLIENTS</div>
+        <p class="section-subtitle">Check out the updates and news from SimG, which is revolutionizing industrial safety with the latest technology.</p>
+        <button class="button-arrow" id="client-prev-button"><img src="../images/btn-arrow-left.png" alt="Before-Logo"></button>
+        <div class="client-wrapper">
+            <ul class="client-carousel">
+                <% dataClient.forEach(function(client) { %>
+                <li class="client-logo"><img src="../uploads/client/<%= client.client_logo %>" alt="<%= client.client_name %>" title="<%= client.client_name %>"></li>
+                <% }); %>
+            </ul>
+        </div>
+        <button class="button-arrow" id="client-next-button"><img src="../images/btn-arrow-right.png" alt="After-Logo"></button>
+    </section>
+   
+    <section class="contact-container pb-5 ">
+       
+        <h2 class="section-title">CONTACT US</h2>
+        <p class="section-subtitle">A prepared XR specialist consultant presents your future.</p>
+        <div class="row p-3">
+            <div class="contact-partner-item col">
+                <div class="contact-item-title">Partner collaboration inquiry</div>
+                <div class="contact-item-subMessage">Inquiry number : 052-221-3001/3007</div>
+                <div class="contact-item-subMessage">Email : simg@simglab.com</div>
+            </div>
+            <div class="contact-product-item col">
+                <div class="contact-item-title">Partner collaboration inquiry</div>
+                <div class="contact-item-subMessage">Inquiry number : 052-221-3001/3007</div>
+                <div class="contact-item-subMessage">Email : simg@simglab.com</div>
+            </div>
+        </div>
+        <div class="contact-form pt-4 pb-5">
+            <%- include('contactform') %>
+            
+        </div>
+    </section>
+  
+    
+    
+    <div id="simg-templete-footer"><%- include('footer') %></div>
+   
+  
+
+   
+</body>
+</html>

@@ -1,0 +1,117 @@
+
+<%- include('header') %>
+    <section class="main-container">
+        <div class="main-title">
+            革新的な先導者、<br>重機訓練VRコンテンツの制作
+        </div>
+    </section>
+
+    <section class="simulator-container">
+        <div class="simulator">
+            <iframe src="https://www.youtube.com/embed/0s0HKv3y2BU?si=_EvKoAiq7MBvcF4r&amp;start=33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="simulator-info">
+                <p class="simulator-type">重機シミュレーター</p>
+                <h3 class="simulator-title">掘削機シミュレーター</h3>
+                <p class="simulator-description">シミュレーション機器で掘削機の実習が学べます.</p>
+                <a href="#" class="menu-detail-button">詳細を表示</a>
+            </div>
+        </div>
+        <div class="simulator">
+            <iframe src="https://www.youtube.com/embed/0s0HKv3y2BU?si=_EvKoAiq7MBvcF4r&amp;start=84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="simulator-info">
+                <p class="simulator-type">重機シミュレーター</p>
+                <h3 class="simulator-title">掘削機シミュレーター</h3>
+                <p class="simulator-description">シミュレーション機器で掘削機の実習が学べます.</p>
+                <a href="#" class="menu-detail-button">詳細を表示</a>
+            </div>
+        </div>
+    </section>
+    <section class="client-container pb-5">
+        <div class="partnership-banner">
+            <div>
+                <div class="partnership-type">選抜プロジェクト</div>
+                <div class="partnership-title">各分野の専門家にカスタマイズされたソリューションを提供</div>
+                <div class="partnership-description">最適なソリューションで企業にカスタマイズされたイノベーションを提供します</div>
+            </div>
+            <a href="/partnership" class="partnership-detail-button">続きを読む</a>
+        </div>
+    </section>
+    <section class="news-container mt-3">
+        <div class="section-title">最新ニュース</div>
+        <p class="section-subtitle">最新のテクノロジーで産業安全に革命を起こしている SimG の最新情報とニュースをご覧ください。</p>
+        <button class="button-arrow" id="news-prev-button"><img src="../images/btn-arrow-left.png" alt="Before-News"></button>
+        <div class="news-wrapper">
+            <ul class="news-carousel">
+                 <% dataNews.forEach(function(news) { %>
+                <li class="news-item">
+                    <img src="../uploads/news/<%= news.news_cover_image %>" alt="News Image 1">
+                    <div class="news-content">
+                        <span class="news-category">&nbsp;</span>
+                        <span class="news-date"><%= news.news_date %></span>
+                        <div class="news-title"><%= news.news_title_ja %></div>
+                        <p class="news-description">
+                            <% 
+                                var words = news.news_content_ja.split(' ');
+                                var truncatedContent = words.slice(0, 9).join(' ');
+                                if (words.length > 9) {
+                                    truncatedContent += '...';
+                                }
+                                %> <%= truncatedContent %> <% 
+                           
+                            %>
+
+                        </p>
+                        <a href="#" class="news-detail-button">続きを読む</a>
+                    </div>
+                </li>
+                <% }); %>
+            </ul>
+        </div> 
+        <button class="button-arrow" id="news-next-button"><img src="../images/btn-arrow-right.png" alt="After-News"></button>
+    </section>
+
+    <section class="client-container">
+        <div class="section-title">我々の顧客</div>
+        <p class="section-subtitle">最新のテクノロジーで産業安全を革新するSimGの最新情報とニュースをご覧ください.</p>
+        <button class="button-arrow" id="client-prev-button"><img src="../images/btn-arrow-left.png" alt="Before-Logo"></button>
+        <div class="client-wrapper">
+            <ul class="client-carousel">
+                <% dataClient.forEach(function(client) { %>
+                <li class="client-logo"><img src="../uploads/client/<%= client.client_logo %>" alt="<%= client.client_name %>" title="<%= client.client_name %>"></li>
+                <% }); %>
+            </ul>
+        </div>
+        <button class="button-arrow" id="client-next-button"><img src="../images/btn-arrow-right.png" alt="After-Logo"></button>
+    </section>
+   
+    <section class="contact-container pb-5 ">
+       
+        <h2 class="section-title">お問い合わせ</h2>
+        <p class="section-subtitle">経験豊富なXR専門コンサルタントがあなたの将来をご提案します.</p>
+        <div class="row p-3">
+            <div class="contact-partner-item col">
+                <div class="contact-item-title">パートナーコラボレーションのお問い合わせ</div>
+                <div class="contact-item-subMessage">お問い合わせ番号 : 052-221-3001/3007</div>
+                <div class="contact-item-subMessage">Eメール : simg@simglab.com</div>
+            </div>
+            <div class="contact-product-item col">
+                <div class="contact-item-title">パートナーコラボレーションのお問い合わせ</div>
+                <div class="contact-item-subMessage">お問い合わせ番号 : 052-221-3001/3007</div>
+                <div class="contact-item-subMessage">Eメール : simg@simglab.com</div>
+            </div>
+        </div>
+        <div class="contact-form">
+            <%- include('contactform') %>
+            
+        </div>
+    </section>
+  
+    
+    
+    <div id="simg-templete-footer"><%- include('footer') %></div>
+   
+  
+
+   
+</body>
+</html>
