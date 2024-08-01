@@ -1,13 +1,13 @@
 
 <%- include('header') %>
-<div class="menu-tag"><a class="index-tag" href="/">홈</a> > <a class="aboutUs-tag"  href="#">회사소개</a></div>
+<div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/">홈</a> > <a class="aboutUs-tag"  href="#">회사소개</a></div>
 
 <section class="about-us-container">
     <div class="row">
         <div class="about-us-info col">
             
             <div class="about-us-title">&nbsp;</div>
-            <div class="about-us-message">
+            <div class="about-us-message text-left">
                <%- dataAbout[0].about_content %>
             </div>
         </div>
@@ -25,11 +25,11 @@
     </div>
 </section>
 
-<section class="milestones-container">
-    <div class="section-title">COMPANY MILESTONES</div>
-    <p class="section-subtitle">2013년부터 쉼 없이 달려온 심지의 발자취입니다.</p>
+<section class="milestones-container simg-page-bg">
+    <div class="section-title  simg-heading4 text-center simg-black">COMPANY MILESTONES</div>
+    <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">2013년부터 쉼 없이 달려온 심지의 발자취입니다.</p>
     <div class="milestones-list">
-        <div class="milestones-item">
+        <div class="milestones-item simg-bg-white">
             <!-- <div class="milestones-item-title">창립 및 도약기 (~2013)</div>
             <div class="milestones-item-sub-title">열정과 도전의 시작</div>
             <ul class="milestones-item-contents">
@@ -43,10 +43,10 @@
             </ul> -->
             <%- dataAbout[1].about_content %>
         </div>
-        <div class="milestones-item">
+        <div class="milestones-item simg-bg-white">
             <%- dataAbout[2].about_content %>
         </div>
-        <div class="milestones-item">
+        <div class="milestones-item simg-bg-white">
             <%- dataAbout[3].about_content %>
         </div>
     </div>

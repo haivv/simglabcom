@@ -1,10 +1,10 @@
 <%- include('header') %>
 
-    <div class="menu-tag"><a class="index-tag" href="/ja">ホームページ</a> > <a class="aboutUs-tag" href="#">パートナーシップ</a></div>
+    <div class="menu-tag  simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/ja">Home</a> > <a class="aboutUs-tag" href="#">パートナーシップ</a></div>
     <section class="partnership-page-container">
         <div>
-            <div class="partnership-page-title">SIMG Co., Ltd. は、さまざまなシミュレータ、XR コンテンツ、およびソリューションを提供します。</div>
-            <div class="partnership-page-message">
+            <div class="partnership-page-title simg-body2 text-left">SIMG Co., Ltd. は、さまざまなシミュレータ、XR コンテンツ、およびソリューションを提供します。</div>
+            <div class="partnership-page-message simg-body4 text-left">
                 需要のある企業のための革新的なXRコンテンツの創出を支援し、産業生態系活性化のためのパートナーシップを運営します。
 
                 これを通じて企業が創意的で競争力のあるコンテンツを生産できるように支援し、グローバル市場の競争力強化を目標にしています。
@@ -18,15 +18,15 @@
     <section class="partnership-products-container">
         <div class="partnership-products-list">
             <%   dataPatnership.forEach(function(partnership) { %>
-                <div class="partnership-products-item">
+                <div class="partnership-products-item  simg-bg-white text-left">
                     <img src="/public/uploads/partnership/<%= partnership.partner_img %>">
-                    <div class="partnership-products-item-type"><%= partnership.partner_name_ja %></div>
-                    <div class="partnership-products-item-title">AR 조립가이드 솔루션</div>
+                    <div class="partnership-products-item-type simg-body3 simg-tangerine"><%= partnership.partner_name_ja %></div>
+                    <div class="partnership-products-item-title simg-body1 simg-black"><%= partnership.partner_project_ja %></div>
                     <div class="partnership-products-item-content">
                         <%   let detail = partnership.partner_detail_ja; let splitDetails = detail.split('.');  %>
                         <ul>
                             <% splitDetails.forEach(function(part) { %>
-                              <li style="margin-bottom: 5px;"><%= part.trim() %></li>
+                              <li class="simg-body4 simg-gray500" style="margin-bottom: 5px;"><%= part.trim() %></li>
                             <% }); %>
                           </ul>
                     </div>
@@ -36,7 +36,7 @@
             
         </div>
         <div class="partnership-products-button-area">
-            <a href="/ja/contact" class="partnership-page-contact-button">お問い合わせします</a>
+            <a href="/ja/contact" class="partnership-page-contact-button simg-body2 simg-bg-blue simg-white">お問い合わせします</a>
         </div>
     </section>
 

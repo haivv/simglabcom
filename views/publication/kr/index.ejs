@@ -1,6 +1,6 @@
 
 <%- include('header') %>
-    <section class="main-container">
+    <section class="main-container simg-white simg-bg-tangerine">
         <div class="main-title">
             미래를 <span class="line-title">선도</span>하는 혁신적인</br> 
             중장비 훈련 VR 콘텐츠 제작
@@ -8,49 +8,49 @@
     </section>
 
     <section class="simulator-container">
-        <div class="simulator">
-            <iframe src="https://www.youtube.com/embed/0s0HKv3y2BU?si=_EvKoAiq7MBvcF4r&amp;start=33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="simulator simg-bg-white">
+            <iframe src="https://www.youtube.com/embed/U9CL2skuM-M?si=9ImnxfBQQqkpU5q3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="simulator-info">
-                <p class="simulator-type">중장비 시뮬레이터</p>
-                <h3 class="simulator-title">굴착기 시뮬레이터</h3>
-                <p class="simulator-description">굴착기 연습을 시뮬레이션 장비로 배울 수 있습니다.</p>
-                <a href="#" class="menu-detail-button">자세히보기</a>
+                <p class="simulator-type simg-body3 text-left simg-tangerine">중장비 시뮬레이터</p>
+                <h3 class="simulator-title simg-title2 text-left simg-black">굴착기 시뮬레이터</h3>
+                <p class="simulator-description simg-body3 text-left simg-gray500">굴착기 연습을 시뮬레이션 장비로 배울 수 있습니다.</p>
+                <a href="/product/2" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">자세히보기</a>
             </div>
         </div>
-        <div class="simulator">
-            <iframe src="https://www.youtube.com/embed/0s0HKv3y2BU?si=_EvKoAiq7MBvcF4r&amp;start=84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="simulator simg-bg-white">
+            <iframe src="https://www.youtube.com/embed/hU2xK6LCUeo?si=9xt2B9Nd0TwQZR16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="simulator-info">
-                <p class="simulator-type">중장비 시뮬레이터</p>
-                <h3 class="simulator-title">지게차 시뮬레이터</h3>
-                <p class="simulator-description">지게차 연습을 시뮬레이션 장비로 배울 수 있습니다.</p>
-                <a href="#" class="menu-detail-button">자세히보기</a>
+                <p class="simulator-type simg-body3 text-left simg-tangerine">중장비 시뮬레이터</p>
+                <h3 class="simulator-title simg-title2 text-left simg-black">지게차 시뮬레이터</h3>
+                <p class="simulator-description simg-body3 text-left simg-gray500">지게차 연습을 시뮬레이션 장비로 배울 수 있습니다.</p>
+                <a href="product/1" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">자세히보기</a>
             </div>
         </div>
     </section>
-    <section class="client-container pb-5">
+    <section class="client-container">
         <div class="partnership-banner">
             <div>
-                <div class="partnership-type">선정사업</div>
-                <div class="partnership-title">각 분야 전문가들을 위한 맞춤 솔루션 제공</div>
-                <div class="partnership-description">최고의 솔루션으로 기업에 맞춤형 혁신을 제공</div>
+                <div class="partnership-type simg-body2 text-left simg-blue">선정사업</div>
+                <div class="partnership-title simg-title2 text-left simg-white">각 분야 전문가들을 위한 맞춤 솔루션 제공</div>
+                <div class="partnership-description simg-body1 text-left simg-white simg-opacity60">최고의 솔루션으로 기업에 맞춤형 혁신을 제공</div>
             </div>
-            <a href="/partnership" class="partnership-detail-button">자세히보기</a>
+            <a href="/partnership" class="partnership-detail-button simg-body2 text-center simg-blue simg-bg-white">자세히보기</a>
         </div>
     </section>
-    <section class="news-container mt-3">
-        <div class="section-title">LATEST NEWS</div>
-        <p class="section-subtitle">최신 기술로 산업 안전을 혁신하는 SimG의 소식과 뉴스를 확인하세요.</p>
+    <section class="news-container mt-3 simg-page-bg">
+        <div class="section-title simg-heading4 text-center simg-black">LATEST NEWS</div>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">최신 기술로 산업 안전을 혁신하는 SimG의 소식과 뉴스를 확인하세요.</p>
         <button class="button-arrow" id="news-prev-button"><img src="./images/btn-arrow-left.png" alt="Before-News"></button>
         <div class="news-wrapper">
             <ul class="news-carousel">
                  <% dataNews.forEach(function(news) { %>
                 <li class="news-item">
                     <img src="./uploads/news/<%= news.news_cover_image %>" alt="News Image 1">
-                    <div class="news-content">
+                    <div class="news-content simg-bg-white">
                         <span class="news-category">&nbsp;</span>
-                        <span class="news-date"><%= news.news_date %></span>
-                        <div class="news-title"><%= news.news_title %></div>
-                        <p class="news-description">
+                        <span class="news-date simg-body3 text-left simg-gray400"><%= news.news_date %></span>
+                        <div class="news-title simg-body2 text-left simg-black"><%= news.news_title %></div>
+                        <p class="news-description simg-body4 text-left simg-gray400">
                             <% 
                                 var words = news.news_content.split(' ');
                                 var truncatedContent = words.slice(0, 9).join(' ');
@@ -62,7 +62,7 @@
                             %>
 
                         </p>
-                        <a href="#" class="news-detail-button">뉴스 더보기</a>
+                        <a href="/news/" class="news-detail-button simg-body2 text-center simg-bg-blue simg-white">뉴스 더보기</a>
                     </div>
                 </li>
                 <% }); %>
@@ -72,8 +72,8 @@
     </section>
 
     <section class="client-container">
-        <div class="section-title">OUR CLIENTS</div>
-        <p class="section-subtitle">최신 기술로 산업 안전을 혁신하는 SimG의 소식과 뉴스를 확인하세요.</p>
+        <div class="section-title simg-heading4 text-center simg-black">OUR CLIENTS</div>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">최신 기술로 산업 안전을 혁신하는 SimG의 소식과 뉴스를 확인하세요.</p>
         <button class="button-arrow" id="client-prev-button"><img src="./images/btn-arrow-left.png" alt="Before-Logo"></button>
         <div class="client-wrapper">
             <ul class="client-carousel">
@@ -85,23 +85,23 @@
         <button class="button-arrow" id="client-next-button"><img src="./images/btn-arrow-right.png" alt="After-Logo"></button>
     </section>
    
-    <section class="contact-container pb-5 ">
+    <section class="contact-container simg-page-bg ">
        
-        <h2 class="section-title">CONTACT US</h2>
-        <p class="section-subtitle">준비된 XR전문 컨설턴트가 여러분들의 미래를 제시합니다.</p>
+        <h2 class="section-title  simg-heading4 text-center simg-black">CONTACT US</h2>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">준비된 XR전문 컨설턴트가 여러분들의 미래를 제시합니다.</p>
         <div class="row p-3">
-            <div class="contact-partner-item col">
-                <div class="contact-item-title">파트너 협업 문의</div>
+            <div class="contact-partner-item col  simg-bg-white">
+                <div class="contact-item-title simg-title3 text-left simg-black">선정사업 협업 문의</div>
                 <div class="contact-item-subMessage">문의 번호 : 052-221-3001/3007</div>
                 <div class="contact-item-subMessage">이메일 : simg@simglab.com</div>
             </div>
-            <div class="contact-product-item col">
-                <div class="contact-item-title">파트너 협업 문의</div>
+            <div class="contact-partner-item col  simg-bg-white">
+                <div class="contact-item-title simg-title3 text-left simg-black">제품 및 서비스 도입문의</div>
                 <div class="contact-item-subMessage">문의 번호 : 052-221-3001/3007</div>
                 <div class="contact-item-subMessage">이메일 : simg@simglab.com</div>
             </div>
         </div>
-        <div class="contact-form pt-4 pb-5">
+        <div class="contact-form pt-4 pb-5 simg-bg-white">
             <%- include('contactform') %>
             
         </div>

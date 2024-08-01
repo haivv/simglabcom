@@ -1,6 +1,6 @@
 
 <%- include('header') %>
-    <section class="main-container">
+    <section class="main-container simg-white simg-bg-tangerine">
         <div class="main-title">
             Innovative <span class="line-title">leading</span> the future <br>
             Heavy equipment training VR content production
@@ -8,49 +8,49 @@
     </section>
 
     <section class="simulator-container">
-        <div class="simulator">
-            <iframe src="https://www.youtube.com/embed/0s0HKv3y2BU?si=_EvKoAiq7MBvcF4r&amp;start=33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="simulator simg-bg-white">
+            <iframe src="https://www.youtube.com/embed/U9CL2skuM-M?si=9ImnxfBQQqkpU5q3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="simulator-info">
-                <p class="simulator-type">Heavy Equipment Simulator</p>
-                <h3 class="simulator-title">Excavator simulator</h3>
-                <p class="simulator-description">You can learn excavator practice with simulation equipment.</p>
-                <a href="#" class="menu-detail-button">Read more</a>
+                <p class="simulator-type simg-body3 text-left simg-tangerine">Heavy Equipment Simulator</p>
+                <h3 class="simulator-title simg-title2 text-left simg-black">Excavator simulator</h3>
+                <p class="simulator-description simg-body3 text-left simg-gray500">You can learn excavator practice with simulation equipment.</p>
+                <a href="/en/product/2" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">Read more</a>
             </div>
         </div>
-        <div class="simulator">
-            <iframe src="https://www.youtube.com/embed/0s0HKv3y2BU?si=_EvKoAiq7MBvcF4r&amp;start=84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="simulator simg-bg-white">
+            <iframe src="https://www.youtube.com/embed/hU2xK6LCUeo?si=9xt2B9Nd0TwQZR16" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="simulator-info">
-                <p class="simulator-type">Heavy Equipment Simulator</p>
-                <h3 class="simulator-title">Excavator simulator</h3>
-                <p class="simulator-description">You can learn excavator practice with simulation equipment.</p>
-                <a href="#" class="menu-detail-button">Read more</a>
+                <p class="simulator-type simg-body3 text-left simg-tangerine">Heavy Equipment Simulator</p>
+                <h3 class="simulator-title simg-title2 text-left simg-black">Excavator simulator</h3>
+                <p class="simulator-description simg-body3 text-left simg-gray500">You can learn excavator practice with simulation equipment.</p>
+                <a href="/en/product/1" class="menu-detail-button simg-body2 text-center simg-white simg-bg-blue">Read more</a>
             </div>
         </div>
     </section>
-    <section class="client-container pb-5">
+    <section class="client-container">
         <div class="partnership-banner">
             <div>
-                <div class="partnership-type">Selection project</div>
-                <div class="partnership-title">Providing customized solutions for experts in each field</div>
-                <div class="partnership-description">Provide customized innovation to businesses with the best solutions</div>
+                <div class="partnership-type simg-body2 text-left simg-blue">Selection project</div>
+                <div class="partnership-title simg-title2 text-left simg-white">Providing customized solutions for experts in each field</div>
+                <div class="partnership-description simg-body1 text-left simg-white simg-opacity60">Provide customized innovation to businesses with the best solutions</div>
             </div>
-            <a href="/partnership" class="partnership-detail-button">Read more</a>
+            <a href="/en/partnership" class="partnership-detail-button simg-body2 text-center simg-blue simg-bg-white">Read more</a>
         </div>
     </section>
-    <section class="news-container mt-3">
-        <div class="section-title">LATEST NEWS</div>
-        <p class="section-subtitle">Check out the updates and news from SimG, which is revolutionizing industrial safety with the latest technology..</p>
-        <button class="button-arrow" id="news-prev-button"><img src="../images/btn-arrow-left.png" alt="Before-News"></button>
+    <section class="news-container mt-3 simg-page-bg">
+        <div class="section-title simg-heading4 text-center simg-black">LATEST NEWS</div>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">Check out the updates and news from SimG, which is revolutionizing industrial safety with the latest technology.</p>
+        <button class="button-arrow" id="news-prev-button"><img src="/public/images/btn-arrow-left.png" alt="Before-News"></button>
         <div class="news-wrapper">
             <ul class="news-carousel">
                  <% dataNews.forEach(function(news) { %>
                 <li class="news-item">
                     <img src="../uploads/news/<%= news.news_cover_image %>" alt="News Image 1">
-                    <div class="news-content">
+                    <div class="news-content simg-bg-white">
                         <span class="news-category">&nbsp;</span>
-                        <span class="news-date"><%= news.news_date %></span>
-                        <div class="news-title"><%= news.news_title_en %></div>
-                        <p class="news-description">
+                        <span class="news-date simg-body3 text-left simg-gray400"><%= news.news_date %></span>
+                        <div class="news-title simg-body2 text-left simg-black"><%= news.news_title_en %></div>
+                        <p class="news-description simg-body4 text-left simg-gray400">
                             <% 
                                 var words = news.news_content_en.split(' ');
                                 var truncatedContent = words.slice(0, 9).join(' ');
@@ -62,7 +62,7 @@
                             %>
 
                         </p>
-                        <a href="#" class="news-detail-button">Read more</a>
+                        <a href="/en/news/" class="news-detail-button simg-body2 text-center simg-bg-blue simg-white">Read more</a>
                     </div>
                 </li>
                 <% }); %>
@@ -72,8 +72,8 @@
     </section>
 
     <section class="client-container">
-        <div class="section-title">OUR CLIENTS</div>
-        <p class="section-subtitle">Check out the updates and news from SimG, which is revolutionizing industrial safety with the latest technology.</p>
+        <div class="section-title simg-heading4 text-center simg-black">OUR CLIENTS</div>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">Check out the updates and news from SimG, which is revolutionizing industrial safety with the latest technology.</p>
         <button class="button-arrow" id="client-prev-button"><img src="../images/btn-arrow-left.png" alt="Before-Logo"></button>
         <div class="client-wrapper">
             <ul class="client-carousel">
@@ -82,26 +82,26 @@
                 <% }); %>
             </ul>
         </div>
-        <button class="button-arrow" id="client-next-button"><img src="../images/btn-arrow-right.png" alt="After-Logo"></button>
+        <button class="button-arrow" id="client-next-button"><img src="/public/images/btn-arrow-right.png" alt="After-Logo"></button>
     </section>
    
-    <section class="contact-container pb-5 ">
+    <section class="contact-container simg-page-bg ">
        
-        <h2 class="section-title">CONTACT US</h2>
-        <p class="section-subtitle">A prepared XR specialist consultant presents your future.</p>
+        <h2 class="section-title  simg-heading4 text-center simg-black">CONTACT US</h2>
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">A prepared XR specialist consultant presents your future.</p>
         <div class="row p-3">
-            <div class="contact-partner-item col">
-                <div class="contact-item-title">Partner collaboration inquiry</div>
-                <div class="contact-item-subMessage">Inquiry number : 052-221-3001/3007</div>
-                <div class="contact-item-subMessage">Email : simg@simglab.com</div>
+            <div class="contact-partner-item col  simg-bg-white">
+                <div class="contact-item-title simg-title3 text-left simg-black">Partner collaboration inquiry</div>
+                <div class="contact-item-subMessage">Inquiry number: 052-221-3001/3007</div>
+                <div class="contact-item-subMessage">Email: simg@simglab.com</div>
             </div>
-            <div class="contact-product-item col">
-                <div class="contact-item-title">Partner collaboration inquiry</div>
-                <div class="contact-item-subMessage">Inquiry number : 052-221-3001/3007</div>
-                <div class="contact-item-subMessage">Email : simg@simglab.com</div>
+            <div class="contact-partner-item col  simg-bg-white">
+                <div class="contact-item-title simg-title3 text-left simg-black">Partner collaboration inquiry</div>
+                <div class="contact-item-subMessage">Inquiry number: 052-221-3001/3007</div>
+                <div class="contact-item-subMessage">Email: simg@simglab.com</div>
             </div>
         </div>
-        <div class="contact-form pt-4 pb-5">
+        <div class="contact-form pt-4 pb-5 simg-bg-white">
             <%- include('contactform') %>
             
         </div>
