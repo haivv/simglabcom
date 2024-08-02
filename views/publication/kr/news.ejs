@@ -1,6 +1,6 @@
 <%- include('header') %>
 
-    <div class="menu-tag simg-body4 simg-gray400 "><a class="index-tag  simg-gray500" href="/">홈</a> > <a class="aboutUs-tag" href="#">뉴스</a></div>
+    <div class="menu-tag simg-body4 simg-gray400 "><a class="index-tag  simg-gray500" href="/">홈</a> > <a class="aboutUs-tag" href="/news">뉴스</a></div>
     <section class="latest-news-container">
         <table class="latest-news-list" border="0">
             <tr>
@@ -9,7 +9,9 @@
                         <img src="/public/uploads/news/<%= news.news_cover_image %>" width="320px">
                         <div class="latest-news-info">
                             <p class="latest-news-info-title simg-title4">
+                                <a href="/news-detail/<%= news.news_id%>">
                                 <%= news.news_title%>
+                            </a>
                             </p>
                             <p class="latest-news-info-date simg-body4 simg-gray600">
                                 <%= news.news_date%>

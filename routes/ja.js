@@ -227,6 +227,40 @@ router.get('/news/:page', function (req, res, next) {
 
 });
 
+router.get('/news-detail/:news_id', function (req, res, next) {
+	var news_id = req.params.news_id;
+	var current_page = 'news-detail/'+news_id;
+
+	database.query(sqlCat1, function (error, dataCat1) {
+		database.query(sqlCat2, function (error, dataCat2) {
+			database.query(sqlCat3, function (error, dataCat3) {
+				database.query(sqlCat4, function (error, dataCat4) {
+					database.query(sqlCat5, function (error, dataCat5) {
+
+						var page = 1;
+						var sql = `SELECT * FROM news WHERE news_id=${news_id}`;
+						database.query(sql, function (error, dataNews) {
+							if (error) {
+								//throw error;
+								res.render('error');
+							}
+							else {
+									res.render('publication/ja/news-detail', { current_page, dataCat1, dataCat2, dataCat3, dataCat4, dataCat5, dataNews });
+									
+							}
+						});
+
+
+					});
+
+				});
+			});
+		});
+
+	});
+
+});
+
 router.get('/pat-cer', function (req, res, next) {
 	var current_page = 'pat-cer';
 

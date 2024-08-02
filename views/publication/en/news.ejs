@@ -1,6 +1,6 @@
 <%- include('header') %>
 
-    <div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/en">Home</a> > <a class="aboutUs-tag" href="#">News</a></div>
+    <div class="menu-tag menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="/en">Home</a> > <a class="aboutUs-tag" href="#">News</a></div>
     <section class="latest-news-container">
         <table class="latest-news-list" border="0">
             <tr>
@@ -9,12 +9,14 @@
                         <img src="/public/uploads/news/<%= news.news_cover_image %>" width="320px">
                         <div class="latest-news-info">
                             <p class="latest-news-info-title simg-title4">
+                                <a href="/en/news-detail/<%= news.news_id%>">
                                 <%= news.news_title_en%>
+                            </a>
                             </p>
                             <p class="latest-news-info-date simg-body4 simg-gray600">
                                 <%= news.news_date%>
                             </p>
-                            <p class="latest-news-info-description simg-body3">
+                            <p class="latest-news-info-description  simg-body3">
                                 <%= news.news_content_en%>
                             </p>
                         </div>
