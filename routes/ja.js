@@ -238,7 +238,7 @@ router.get('/news-detail/:news_id', function (req, res, next) {
 					database.query(sqlCat5, function (error, dataCat5) {
 
 						var page = 1;
-						var sql = `SELECT * FROM news WHERE news_id=${news_id}`;
+						var sql = `SELECT * FROM news WHERE news_id="${news_id}"`;
 						database.query(sql, function (error, dataNews) {
 							if (error) {
 								//throw error;
