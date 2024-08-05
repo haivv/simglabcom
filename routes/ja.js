@@ -238,7 +238,7 @@ router.get('/news-detail/:news_id', function (req, res, next) {
 					database.query(sqlCat5, function (error, dataCat5) {
 
 						var page = 1;
-						var sql = `SELECT * FROM news WHERE news_id="${news_id}"`;
+						var sql = `SELECT * FROM news WHERE news_id=${news_id}`;
 						database.query(sql, function (error, dataNews) {
 							if (error) {
 								//throw error;
@@ -308,8 +308,8 @@ router.get('/pat-cer', function (req, res, next) {
 });
 
 
-router.get('/partnership', function (req, res, next) {
-	var current_page = 'partnership';
+router.get('/r-d', function (req, res, next) {
+	var current_page = 'r-d';
 	
 
 	var sqlQa = "SELECT qa_id, qa_question, qa_answer FROM qa";

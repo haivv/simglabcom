@@ -15,7 +15,7 @@ const path = require('path');
 const { title } = require('process');
 dotenv.config({ path: path.join(__dirname, '../config', '.env') });
 
-const accessTokenExp = '100s'; //  Access Token 만료
+var accessTokenExp = '100s'; //  Access Token 만료
 const refreshTokenExp = '1d'; //  Refresh Token 만료
 const accesssecretKey = "simg1";
 const refreshsecretKey = "simg2";
@@ -273,6 +273,7 @@ router.post('/check-login', (req, res) => {
 				//const secretKey ="test";
 				accessToken = jwt.sign(payload, accesssecretKey, { expiresIn: accessTokenExp });
 				refreshToken = jwt.sign(payload, refreshsecretKey, { expiresIn: refreshTokenExp });
+				
 				//	res.status(200).json({ success: true, message: 'Login successful' });
 				res.redirect('/admin/manage');
 
@@ -297,8 +298,9 @@ router.get('/accessTokenCheck', (req, res) => {
 			}
 		});
 	} catch (error) {
+		
 		//res.send('Login fail');
-		res.status(400).json({ message: 'Login fail' });
+		// res.status(400).json({ message: 'Login fail' });
 	}
 
 });
@@ -306,11 +308,11 @@ router.get('/accessTokenCheck', (req, res) => {
 // ========================================== CATEGORY MANAGE =========================================
 
 router.get('/manage', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 	var sql = "SELECT * FROM category ORDER BY cat_id DESC";
 	// res.send(sql);
@@ -323,21 +325,23 @@ router.get('/manage', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		//res.status(400).json({ message: 'Login fail' });
+		
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/cat_edit/:cat_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 	var cat_id = req.params.cat_id;
 	var sql = `SELECT * FROM category WHERE cat_id= "${cat_id}"`;
@@ -351,12 +355,12 @@ router.get('/cat_edit/:cat_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -660,11 +664,11 @@ router.get('/user_delete/:user_id', (req, res) => {
 // ========================================= NEWS MANAGE ===============================================
 
 router.get('/news', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = 1;
@@ -697,22 +701,22 @@ router.get('/news', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.get('/news/:page', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = req.params.page;
@@ -759,12 +763,12 @@ router.get('/news/:page', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -938,11 +942,11 @@ router.get('/news_delete/:news_id', (req, res) => {
 
 // ========================================= PATENTS AND CERTIFICATIONS MANAGE ===============================================
 router.get('/patents-certifications', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = 1;
@@ -975,21 +979,21 @@ router.get('/patents-certifications', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/patents-certifications/:page', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = req.params.page;
@@ -1036,38 +1040,38 @@ router.get('/patents-certifications/:page', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/patents-certifications-add', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 	res.render('admin/patcer-add', { title: 'Patents and Certifications Add', mes: '' });
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.status(400).json({ message: 'Login fail' });
+	}
 
 });
 
 
 router.post('/patents-certifications-proAdd', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 	var today = new Date();
 	var year = today.getFullYear();
 	var month = ('0' + (today.getMonth() + 1)).slice(-2);
@@ -1095,20 +1099,20 @@ router.post('/patents-certifications-proAdd', (req, res) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 router.get('/patents-certifications-edit/:patcer_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var patcer_id = req.params.patcer_id;
@@ -1124,12 +1128,12 @@ router.get('/patents-certifications-edit/:patcer_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -1174,11 +1178,11 @@ router.post('/patents-certifications-proUpdate', function (req, res, next) {
 
 
 router.get('/patents-certifications-delete/:patcer_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var patcer_id = req.params.patcer_id;
@@ -1193,12 +1197,12 @@ router.get('/patents-certifications-delete/:patcer_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -1208,11 +1212,11 @@ router.get('/patents-certifications-delete/:patcer_id', (req, res) => {
 
 // ========================================= CLIENT MANAGE ===============================================
 router.get('/client', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = 1;
@@ -1245,21 +1249,21 @@ router.get('/client', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/client/:page', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = req.params.page;
@@ -1306,39 +1310,39 @@ router.get('/client/:page', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.get('/client-add', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 	res.render('admin/client-add', { title: 'Client Add', mes: '' });
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.post('/client-proAdd', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 	var today = new Date();
 	var year = today.getFullYear();
@@ -1367,22 +1371,22 @@ router.post('/client-proAdd', (req, res) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.get('/client_edit/:client_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var client_id = req.params.client_id;
@@ -1399,12 +1403,12 @@ router.get('/client_edit/:client_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -1453,11 +1457,11 @@ router.post('/client-proUpdate', function (req, res, next) {
 
 
 router.get('/client_delete/:client_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var client_id = req.params.client_id;
@@ -1472,12 +1476,12 @@ router.get('/client_delete/:client_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -1486,11 +1490,11 @@ router.get('/client_delete/:client_id', (req, res) => {
 
 // =========================================  PRODUCT MANAGE ===============================================
 router.get('/product', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = 1;
@@ -1523,22 +1527,23 @@ router.get('/product', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		//res.status(400).json({ message: 'Login fail' });
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.get('/product-view/:pro_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var pro_id = req.params.pro_id;
@@ -1555,21 +1560,21 @@ router.get('/product-view/:pro_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/product/:page', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = req.params.page;
@@ -1616,23 +1621,23 @@ router.get('/product/:page', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 
 router.get('/product-add', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 
@@ -1646,22 +1651,22 @@ router.get('/product-add', (req, res) => {
 			res.render('admin/product-add', { title: 'Product Add', dataCate });
 		}
 	});
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.post('/product-proAdd', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var today = new Date();
@@ -1695,22 +1700,22 @@ router.post('/product-proAdd', (req, res) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.get('/product_edit/:product_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var pro_id = req.params.product_id;
@@ -1732,12 +1737,12 @@ router.get('/product_edit/:product_id', (req, res) => {
 
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -1813,11 +1818,11 @@ router.post('/product-proUpdate', function (req, res, next) {
 });
 
 router.get('/product-delete/:product_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var pro_id = req.params.product_id;
@@ -1832,12 +1837,12 @@ router.get('/product-delete/:product_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -1847,11 +1852,11 @@ router.get('/product-delete/:product_id', (req, res) => {
 
 //========================================= CONTACT FORM MANAGE ================================================
 router.get('/contact', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = 1;
@@ -1884,21 +1889,21 @@ router.get('/contact', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/contact/:page', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = req.params.page;
@@ -1945,22 +1950,22 @@ router.get('/contact/:page', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.get('/contact-view/:contact_form_ID', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var contact_form_ID = req.params.contact_form_ID;
@@ -1977,21 +1982,21 @@ router.get('/contact-view/:contact_form_ID', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/contact-delete/:contact_form_ID', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var contact_form_ID = req.params.contact_form_ID;
@@ -2006,23 +2011,23 @@ router.get('/contact-delete/:contact_form_ID', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 //////====================== SLIDE SHOW ============================
 
 router.get('/slide-show', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = 1;
@@ -2055,21 +2060,21 @@ router.get('/slide-show', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/slide-show/:page', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = req.params.page;
@@ -2116,43 +2121,43 @@ router.get('/slide-show/:page', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 
 router.get('/slideshow-add', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 	res.render('admin/slideshow-add', { title: 'Slideshow Add' });
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.post('/slideshow-proAdd', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	const { slideshow_title, slideshow_summary, slideshow_imgs } = req.body;
@@ -2185,21 +2190,21 @@ router.post('/slideshow-proAdd', (req, res) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 router.get('/slide-show-edit/:slideshow_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var slideshow_id = req.params.slideshow_id;
@@ -2217,12 +2222,12 @@ router.get('/slide-show-edit/:slideshow_id', (req, res) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -2252,11 +2257,11 @@ router.post('/slideshow-proUpdate', function (req, res, next) {
 });
 
 router.get('/slide-show-delete/:slideshow_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var slideshow_id = req.params.slideshow_id;
@@ -2271,12 +2276,12 @@ router.get('/slide-show-delete/:slideshow_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 router.get('/error', (req, res) => {
@@ -2320,11 +2325,11 @@ router.get('/about', (req, res, next) => {
 });
 
 router.get('/about-edit/:about_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var about_id = req.params.about_id;
@@ -2342,12 +2347,12 @@ router.get('/about-edit/:about_id', (req, res) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -2375,11 +2380,11 @@ router.post('/about_proUpdate', function (req, res, next) {
 
 // ========================================= PARTNERSHIP MANAGE ===============================================
 router.get('/partnership', (req, res, next) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var page = 1;
@@ -2401,40 +2406,40 @@ router.get('/partnership', (req, res, next) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 
 router.get('/partnership-add', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 	res.render('admin/partnership-add', { title: 'Partnership Add', mes: '' });
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 router.post('/partnership-proAdd', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 		var today = new Date();
 	var year = today.getFullYear();
 	var month = ('0' + (today.getMonth() + 1)).slice(-2);
@@ -2467,20 +2472,20 @@ router.post('/partnership-proAdd', (req, res) => {
 
 
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 router.get('/partnership-edit/:partner_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 
@@ -2497,12 +2502,12 @@ router.get('/partnership-edit/:partner_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
@@ -2556,11 +2561,11 @@ router.post('/partnership-proUpdate', function (req, res, next) {
 
 
 router.get('/partnership-delete/:partner_id', (req, res) => {
-	// try {
-	// 	jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
-	// 		if (err) {
-	// 			throw new Error('Invalid access token');
-	// 		} else {
+	try {
+		jwt.verify(accessToken, accesssecretKey, (err, decoded) => {
+			if (err) {
+				throw new Error('Invalid access token');
+			} else {
 
 
 	var partner_id = req.params.partner_id;
@@ -2575,16 +2580,23 @@ router.get('/partnership-delete/:partner_id', (req, res) => {
 		}
 	});
 
-	// 		}
-	// 	});
-	// } catch (error) {
-	// 	//res.send('Login fail');
-	// 	res.status(400).json({ message: 'Login fail' });
-	// }
+			}
+		});
+	} catch (error) {
+		//res.send('Login fail');
+		res.redirect('/admin');
+	}
 
 });
 
 
 // ========================================= END PARTBERSHIP MANAGE ===============================================
+
+// Logout route
+router.get('/logout', (req, res) => {
+	 accessTokenExp = '0s'; //  Access Token 만료
+	  res.redirect('/admin');
+	
+  });
 
 module.exports = router;
