@@ -15,7 +15,8 @@ const path = require('path');
 const { title } = require('process');
 dotenv.config({ path: path.join(__dirname, '../config', '.env') });
 
-var accessTokenExp = '100s'; //  Access Token 만료
+let accessToken = null;
+var accessTokenExp = '3600s'; //  Access Token 만료
 const refreshTokenExp = '1d'; //  Refresh Token 만료
 const accesssecretKey = "simg1";
 const refreshsecretKey = "simg2";
@@ -2593,8 +2594,8 @@ router.get('/partnership-delete/:partner_id', (req, res) => {
 // ========================================= END PARTBERSHIP MANAGE ===============================================
 
 // Logout route
-router.get('/logout', (req, res) => {
-	 accessTokenExp = '0s'; //  Access Token 만료
+router.post('/logout', (req, res) => {
+	accessToken = null;
 	  res.redirect('/admin');
 	
   });
