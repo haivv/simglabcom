@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(주)심지</title>
+    <link rel="stylesheet" href="/WebContent/css/simg.css">
+    <meta name="description" content="(주)심지 시뮬레이터 사이트">
+    <meta name="keywords" content="(주)심지, 시뮬레이터, 교육, 중장비">
+    <link rel="icon" href="/WebContent/images/favicon.ico" type="image/x-icon">
+    <script src="./js/jquery-3.6.4.min.js"></script>
+    <script src="./js/menu.js"></script>
+    <link rel="stylesheet" href="./css/simg.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/simg-design-system.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar simg-bg-navy simg-white">
+            <div class="top-bar-container">
+                <div class="top-bar-info simg-description1 text-left simg-gray200">
+                    <img src="./images/icon-call.png" alt="Phone Icon"> 052-221-3001/3007
+                </div>
+                <div class="top-bar-info simg-description1 text-left simg-gray200">
+                    <img src="./images/icon-email.png" alt="Email Icon"> simg@simglab.com
+                </div>
+                <div class="social-buttons">
+                    <a href="https://www.youtube.com/channel/UCztDxh3P5Edx2fH6R11lHJA">
+                        <img src="./images/Youtube_icon.png" alt="YouTube">
+                    </a>
+                    <a href="https://blog.naver.com/simgxr">
+                        <img src="./images/Blog_icon.png" alt="KakaoTalk">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header-container simg-bg-white">
+            <a href="./index.html">
+                <img src="./images/SimGLoco_Korean_Basic.png" alt="SimG Logo" class="logo">
+            </a>
+            <button class="menu-toggle" id="menu-toggle-button">
+                <img src="./images/btn-menuToggle.png">
+            </button>
+            <ul class="nav-menu">
+                <li class="simg-body3 text-left"><a class="simg-black" href="./about-us.html">회사소개</a></li>
+                <li>
+                    <a class="simg-black" href="#">제품 ▸</a>
+                    <ul class="dropdown simg-bg-white">
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">중장비 시뮬레이터 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <li class="simg-body3 text-left"><a class="simg-black" href="./product.html">굴착기 시뮬레이터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="./product.html">지게차 시뮬레이터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="./product.html">도저 시뮬레이터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="./product.html">로더 시뮬레이터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="./product.html">그레이더 시뮬레이터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="./product.html">크레인 시뮬레이터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="./product.html">트랜스포터 시뮬레이터</a></li>
+                            </ul>
+                        </li>
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">안전교육/사고체험 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">선박화재 대응 VR</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">화학사고 예방 메타버스</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">XR 소화기 시뮬레이터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">지게차 사고체험</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">산업안전 VR 콘텐츠</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">유해화학물질 누출사고체험119</a></li>
+                            </ul>
+                        </li>
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">제조업 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">자재관리 AR</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">배전반 AR</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">조립훈련 VR</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">설계검증 VR</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">원자력 VR</a></li>
+                            </ul>
+                        </li>
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">조선업 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">XR 도장 시뮬레이터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">XR 엔진 정비</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">엔진 마스터</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">엔진 센서 Safety test AR 콘텐츠</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">변압기 조립 VR</a></li>
+                            </ul>
+                        </li>
+                        <li class="simg-body3 text-left">
+                            <a class="simg-black" href="#">문화/관광 ▸</a>
+                            <ul class="dropdown-submenu simg-bg-white">
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">반구대 AR</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">장생포레인저 VR</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">개운포 VR</a></li>
+                                <li class="simg-body3 text-left"><a class="simg-black" href="#">반구대암각화 메타버스</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="simg-body3 text-left"><a class="simg-black" href="./latest-news.html">뉴스</a></li>
+                <li class="simg-body3 text-left"><a class="simg-black" href="./award-certificate.html">수상 / 이력</a></li>
+                <li class="simg-body3 text-left"><a class="simg-black" href="./partnership.html">선정사업</a></li>
+                <li class="simg-body3 text-left"><a class="simg-black" href="./our-clients.html">클라이언트 / 협력사</a></li>
+                <li class="nav-business-area simg-body3 text-left">
+                    <a href="./business.html" class="business-button simg-body3 text-center simg-white simg-bg-blue">비즈니스
+                    <img src="./images/right_top_arrow.png" class="header-arrow">
+                    </a>
+                </li>
+            </ul>
+            <nav class="side-nav-menu simg-bg-white">
+                <button class="close-menu" id="menu-close-button">
+                    <img src="./images/btn-menuClose.png">
+                </button>
+                <ul>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./about-us.html">회사소개</a></li>
+                    <li>
+                        <button class="product-button simg-body3 text-left text-left" id="product-list-button"><a href="#" >제품 ▸</a></button>
+                        <ul class="product-list-menu simg-bg-white">
+                            <li><button class="product-back-button" id="product-back-button"><img src="/WebContent/images/btn-menuBack.png"></button></li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="heavy-equipment-button"><a class="simg-black" href="#">중장비 시뮬레이터 ▸</a></button>
+                                <ul class="heavy-equipment-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="heavy-equipment-back-button"><img src="/WebContent/images/btn-menuBack.png"></button></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./product.html">지게차 시뮬레이터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./product.html">굴착기 시뮬레이터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./product.html">도저 시뮬레이터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./product.html">로더 시뮬레이터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./product.html">그레이더 시뮬레이터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./product.html">크레인 시뮬레이터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./product.html">트랜스포터 시뮬레이터</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="safety-training-accident-experience-button"><a class="simg-black" href="#">안전교육/사고체험 ▸</a></button>
+                                <ul class="safety-training-accident-experience-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="safety-training-accident-experience-back-button"><img src="/WebContent/images/btn-menuBack.png"></button></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">선박화재 대응 VR</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">화학사고 예방 메타버스</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">XR 소화기 시뮬레이터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">지게차 사고체험</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">산업안전 VR 콘텐츠</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">유해화학물질 누출사고체험119</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="manufacturing-button"><a class="simg-black" href="#">제조업 ▸</a></button>
+                                <ul class="manufacturing-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="manufacturing-back-button"><img src="/WebContent/images/btn-menuBack.png"></button></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">자재관리 AR</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">배전반 AR</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">조립훈련 VR</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">설계검증 VR</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">원자력 VR</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="shipbuilding-industry-button"><a class="simg-black" href="#">조선업 ▸</a></button>
+                                <ul class="shipbuilding-industry-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="shipbuilding-industry-back-button"><img src="/WebContent/images/btn-menuBack.png"></button></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">XR 도장 시뮬레이터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">XR 엔진 정비</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">엔진 마스터</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">엔진 센서 Safety test AR 콘텐츠</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">변압기 조립 VR</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <button class="product-button simg-body3 text-left text-left" id="culture-tourism-button"><a class="simg-black" href="#">문화/관광 ▸</a></button>
+                                <ul class="culture-tourism-menu simg-bg-white">
+                                    <li><button class="product-back-button" id="culture-tourism-back-button"><img src="/WebContent/images/btn-menuBack.png"></button></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">반구대 AR</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">장생포레인저 VR</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">개운포 VR</a></li>
+                                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="#">반구대암각화 메타버스</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./latest-news.html">뉴스</a></li>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./award-certificate.html">수상 / 이력</a></li>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./partnership.html">선정사업</a></li>
+                    <li class="simg-body3 text-left text-left"><a class="simg-black" href="./our-clients.html">클라이언트 / 협력사</a></li>
+                    <li class="simg-body3 text-left text-left">
+                        <a href="./business.html" class="business-button simg-body3 text-center simg-white simg-bg-blue">비즈니스
+                        <img src="./images/right_top_arrow.png" class="header-arrow">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="menu-tag simg-body4 simg-gray400"><a class="index-tag simg-gray500" href="./index.html">홈</a> > <a class="simg-gray500"  href="#">중장비 시뮬레이터</a> > <a class="simg-gray500"  href="#">굴삭기 시뮬레이터</a></div>
+    <section class="product-container">
+        <div class="product-page">
+            <div class="product-image-area">
+                <img id="modelImage" src="./images/img-excavatorSimulator-basic.jpg">
+            </div>
+            <div class="product-info-area">
+                <div class="simg-title2 text-center simg-black">굴착기 시뮬레이터</div>
+                <div class="product-info-model">
+                    <div class="product-info-model-title simg-title4 text-left">Models</div>
+                    <div class="product-info-model-list">
+                        <div class="product-info-model-item text-left active" data-model="basic">
+                            <div class="product-info-model-item-title simg-body2 simg-gray600">기본형</div>
+                            <div class="product-info-model-item-subTitle">VR-Basic</div> 
+                        </div>
+                        <div class="product-info-model-item text-left" data-model="hmd">
+                            <div class="product-info-model-item-title simg-body2 simg-gray600">HMD</div>
+                            <div class="product-info-model-item-subTitle simg-body4 simg-gray300">VR-HMD</div> 
+                        </div>
+                        <div class="product-info-model-item text-left" data-model="multi-monitor">
+                            <div class="product-info-model-item-title simg-body2 simg-gray600">멀티모니터</div>
+                            <div class="product-info-model-item-subTitle simg-body4 simg-gray300">VR-Multi-monitor</div> 
+                        </div>
+                        <div class="product-info-model-item text-left" data-model="desk">
+                            <div class="product-info-model-item-title simg-body2 simg-gray600">책상형</div>
+                            <div class="product-info-model-item-subTitle simg-body4 simg-gray300">VR-Desk</div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info-feature">
+                    <div class="product-info-feature">
+                        <div class="product-info-feature-title simg-title4 text-left">Features</div>
+                        <ul class="product-info-feature-contents text-left">
+                            <li class="simg-body4">탄소배출 없는 친환경적인 제품으로, 주차비, 유류비, 부품 손실 등의 문제 없이 운영 가능합니다.</li>
+                            <li class="simg-body4">안전한 환경에서 사전 교육이 가능 (사고 발생률 0%)</li>
+                            <li class="simg-body4">한국에서 교육부장관상을 수상하였습니다.</li>
+                            <li class="simg-body4">시뮬레이션 교육 이후 면허 실기시험 합격률 약 28% 상승하였습니다.</li>
+                        </ul> 
+                    </div>
+                </div>
+                <div class="product-info-reference">
+                    <button class="product-info-reference-button simg-body3 text-center simg-bg-gray100" id="popupButton">기업 사례 보기</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="popup" class="popup">
+        <div class="popup-blur"></div>
+        <div class="popup-container">
+            <span class="close">
+                <img src="./images/btn-popupClose.png" class="colorize">
+            </span>
+            <div class="popup-content">
+                <img class="popup-image" src="./images/img-product-reference-volvo.jpg">
+                <div class="popup-info">
+                    <img src="./images/img-product-reference-logo.jpg">
+                    <div class="simg-body4">
+                        볼보 220E 굴삭기 모델을 가상현실 환경에서 실제 입력 디바이스와 연동하여 조작할 수 있도록 개발하였습니다. 
+                        
+                        이 시스템은 실제 장비의 물리적 특성과 성능을 가상현실 속에 그대로 반영하여, 사용자가 현실과 거의 동일한 퍼포먼스를 경험할 수 있게 합니다.
+                        
+                        이러한 고급 기능들은 볼보 220E 굴삭기 모델의 가상현실 시뮬레이터를 업계 최고의 훈련 도구로 자리매김하게 합니다.
+                    </div>
+                    <button id="inquiryButton" class="simg-body3 text-center simg-bg-blue simg-white">문의하기</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="simg-templete-footer"></div>
+    <script>
+        $(document).ready(function(){
+            $("#simg-templete-footer").load("./footer.html");
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Product Subpage Property
+            const items = document.querySelectorAll('.product-info-model-item');
+            const modelImage = document.getElementById('modelImage');
+            const images = {
+                basic: './images/img-excavatorSimulator-basic.jpg',
+                hmd: './images/img-excavatorSimulator-hmd.jpg',
+                'multi-monitor': './images/img-excavatorSimulator-multiMonitor.jpg',
+                desk: './images/img-excavatorSimulator-desk.jpg'
+            };
+
+            const initialActiveItem = document.querySelector('.product-info-model-item.active');
+            if (initialActiveItem) {
+                const initialModel = initialActiveItem.getAttribute('data-model');
+                modelImage.src = images[initialModel];
+            }
+
+            const popupButton = document.getElementById('popupButton');
+            const popup = document.getElementById('popup');
+            const close = document.querySelector('.close');
+            const popupBlur = document.querySelector('.popup-blur');
+
+            if (popupButton) {
+                popupButton.addEventListener('click', function () {
+                    popup.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            const closePopup = function () {
+                popup.style.display = 'none';
+                document.body.style.overflow = '';
+            };
+
+            if (close) close.addEventListener('click', closePopup);
+            if (popupBlur) popupBlur.addEventListener('click', closePopup);
+
+            window.addEventListener('click', function (event) {
+                if (event.target === popup) {
+                    closePopup();
+                }
+            });
+
+            // Product Subpage Method
+            items.forEach(item => {
+                item.addEventListener('click', function () {
+                    items.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    const model = this.getAttribute('data-model');
+                    modelImage.src = images[model];
+                });
+            });
+        });
+    </script>
+</body>
+</html>
