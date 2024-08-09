@@ -95,9 +95,9 @@ var storage_new = multer.diskStorage({
 		callback(null, file.originalname);
 	}
 });
-var upload_new = multer({ storage: storage_new }).single('myfile');
+var upload_patcer = multer({ storage: storage_new }).single('myfile');
 router.post('/upload_patcer', (req, res) => {
-	upload_new(req, res, function (err) {
+	upload_patcer(req, res, function (err) {
 		if (err) {
 			return res.end("Error uploading file.");
 		}

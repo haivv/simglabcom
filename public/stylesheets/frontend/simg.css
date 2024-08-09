@@ -470,9 +470,7 @@
         padding:10px !important;
      
     }
-    .top-bar-info{
-       width: ;
-    }
+   
 
     .menu-tag {
         top: 40px !important;
@@ -859,6 +857,7 @@
     .contact-partner-item,
     .contact-product-item {
         width: auto !important;
+       
         margin: 20px 0 !important;
     }
 
@@ -925,6 +924,14 @@
         filter: brightness(0) invert(1);
         width: 24px;
         height: 24px;
+    }
+   
+    .award-certificate-list {
+        justify-items: center;
+    }   
+
+    .award-certificate-item {
+        width: 240px !important;
     }
     
 }
@@ -1410,6 +1417,9 @@
     padding: 40px 40px !important;
 }
 .contact-product-item {
+    margin-right: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px 40px !important;
     border-top: 4px solid var(--simgBlue);
 }
 
@@ -1470,7 +1480,7 @@ input:focus {
 }
 
 .footer-info-detail-section {
-    width: 70%;
+    width: 80%;
     display: flex;
     justify-content:space-around
 }
