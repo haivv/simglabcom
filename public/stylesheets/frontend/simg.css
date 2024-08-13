@@ -47,7 +47,13 @@
 .menu-toggle {
     display: none;
 }
-
+#check-button{
+    width: 320px;
+    height: 60px;
+    background: linear-gradient(to right, #25AAE2, #2D5FAB);
+    border: 0px;
+    border-radius: none;
+}
 @media screen and (min-width: 710px) and (max-width: 1600px) {
     .container,
     .header-container,
@@ -236,12 +242,12 @@
 
     #news-prev-button,
     #client-prev-button {
-        left: 20px !important;
+        left: 30px !important;
     }
 
     #news-next-button,
     #client-next-button {
-        right: 20px !important;
+        top: 255px !important;
     }
 
     #client-prev-button,
@@ -414,10 +420,9 @@
 }
 
 @media screen and (max-width: 710px) {
-    /* #txtmessage{
-        width: 86%;
-        
-    } */
+    .swiper-slide img {
+        width: 80% !important; 
+    }
 
     .simulator-title,
     .simulator-description {
@@ -700,13 +705,13 @@
     }
 
     #client-prev-button {
-        top: 250px !important;
-        left: 40px !important;
+        top: 310px !important;
+        left: 30px !important;
     }
 
     #client-next-button {
-        top: 250px !important;
-        right: 40px !important;
+        top: 310px !important;
+        right: 30px !important;
     }
 
     .contact-container {
@@ -1007,7 +1012,7 @@
 }
 
 .main-container {
-    background-image: url('/public/images/img-main-background.png');
+    background-image: url('/public/images/img-main-background.jpg');
     background-size: cover;
     height: 500px;
     align-content: center;
@@ -1294,12 +1299,12 @@
 }
 
 #client-prev-button {
-    top: 250px;
+    top: 260px;
     left: 210px;
 }
 
 #client-next-button {
-    top: 250px;
+    top: 260px;
     right: 210px;
 }
 
@@ -1309,7 +1314,7 @@
 
 .section-subtitle {
     flex-grow: 0;
-    margin: 3px 0 40px 0;
+    margin: 10px 0 40px 0;
 }
 
 .news-wrapper,
@@ -1403,6 +1408,15 @@
     display: inline-block;
     width: 100%;
 }
+.swiper-slide img {
+    width: 100%; 
+    height: auto; 
+    object-fit: contain;
+}
+
+.swiper-slide {
+    text-align: center;
+}
 
 /* main-contact us */
 
@@ -1410,11 +1424,19 @@
     padding-bottom: 100px;
 }
 
+.contact-title-bg {
+   
+    background: url(/public/images/img-contact-background.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
 .contact-partner-item {
-    margin-right: 20px;
+    
     border-top: 4px solid var(--simgTangerine);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    padding: 40px 40px !important;
+   
 }
 .contact-product-item {
     margin-right: 20px;

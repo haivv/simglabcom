@@ -77,41 +77,39 @@
         <button class="button-arrow" id="news-next-button"><img src="./images/btn-arrow-right.png" alt="After-News"></button>
     </section>
 
-    <section class="client-container">
+
+
+    <section class="client-container pb-5">
         <div class="section-title simg-heading4 text-center simg-black">OUR CLIENTS</div>
-        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">(주)심지는 전 세계 수많은 브랜드와 협업하며, 맞춤형 3D 콘텐츠 솔루션을 제공합니다.</p>
-        <button class="button-arrow" id="client-prev-button"><img src="./images/btn-arrow-left.png" alt="Before-Logo"></button>
-        <div class="client-wrapper">
-            <ul class="client-carousel">
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">
+            (주)심지는 전 세계 수많은 브랜드와 협업하며, 맞춤형 3D 콘텐츠 솔루션을 제공합니다.</p>
+        <button class="button-arrow swiper-button-prev simg-gray300" id="client-prev-button"></button>
+        <div class="swiper client-wrapper">
+            <div class="swiper-wrapper">
                 <% dataClient.forEach(function(client) { %>
-                <li class="client-logo"><img src="./uploads/client/<%= client.client_logo %>" alt="<%= client.client_name %>" title="<%= client.client_name %>"></li>
-                <% }); %>
-            </ul>
-        </div>
-        <button class="button-arrow" id="client-next-button"><img src="./images/btn-arrow-right.png" alt="After-Logo"></button>
-    </section>
-   
-    <section class="contact-container simg-page-bg ">
-       
-        <h2 class="section-title  simg-heading4 text-center simg-black">CONTACT US</h2>
-        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">준비된 XR전문 컨설턴트가 여러분들의 미래를 제시합니다.</p>
-        <div class="row p-3">
-            <div class="contact-partner-item col  simg-bg-white">
-                <div class="contact-item-title simg-title3 text-left simg-black">선정사업 협업 문의</div>
-                <div class="contact-item-subMessage">문의 번호 : 052-221-3001/3007</div>
-                <div class="contact-item-subMessage">이메일 : simg@simglab.com</div>
-            </div>
-            <div class="contact-product-item col  simg-bg-white">
-                <div class="contact-item-title simg-title3 text-left simg-black">제품 및 서비스 도입문의</div>
-                <div class="contact-item-subMessage">문의 번호 : 052-221-3001/3007</div>
-                <div class="contact-item-subMessage">이메일 : simg@simglab.com</div>
+                    <div class="swiper-slide"><img src="../uploads/client/<%= client.client_logo %>"
+                            alt="<%= client.client_name %>" title="<%= client.client_name %>"></div>
+                    <% }); %>
             </div>
         </div>
-        <div class="contact-form pt-4 pb-5 simg-bg-white">
-            <%- include('contactform') %>
-            
-        </div>
+        <button class="button-arrow swiper-button-next simg-gray300" id="client-next-button"></button>
     </section>
+
+
+    
+
+    <div class="contact-title-bg simg-page-bg">
+        <section class="contact-container">
+            <div class="section-title simg-heading4 text-center simg-white">CONTACT US</div>
+            <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">
+                준비된 XR전문 컨설턴트가 여러분들의 미래를 제시합니다.</p>
+
+            <div class="contact-form pt-4 pb-5 simg-bg-white">
+                <%- include('contactform') %>
+
+            </div>
+        </section>
+    </div>
   
     
     

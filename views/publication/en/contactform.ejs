@@ -178,56 +178,63 @@
   });
 </script>
 <style>
+  label{
+    float: left;
+  }
   .error {
     color: #F65633;
     position: relative;
+    font-size: 14px;
   }
 
   input:focus {
     outline: none;
   }
+ 
 </style>
 
 <div class="container-fluid" id="form-section">
   <div class="container mt-5"  >
-    <h2 class="text-center ">Contact Us</h2>
     <form name="fcontact" method="post" action="/en/contactus-proAdd">
       <div class="form-row  ">
         <div class="form-group col-md-4">
-          <label for="name">Name</label>
+          <label for="name" class="news-title simg-body2 text-left simg-black">Name</label>
           <input type="text" class="form-control" id="txtname" name="txtname" placeholder="Type your name">
-          <span class="error" id="nameerr"> </span>
+          <span class="error text-left simg-body4 " id="nameerr"> </span>
         </div>
         <div class="form-group col-md-4">
-          <label for="email">Email</label>
+          <label for="email" class="news-title simg-body2 text-left simg-black">Email</label>
           <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Type your email">
-          <span class="error" id="emailerr"> </span>
+          <span class="error text-left simg-body4" id="emailerr"> </span>
         </div>
         <div class="form-group col-md-4">
-          <label for="phone">Phone number</label>
+          <label for="phone" class="news-title simg-body2 text-left simg-black">Phone number</label>
           <input type="tel" class="form-control" id="txtphone" name="txtphone" placeholder="Type your phone number">
-          <span class="error" id="phoneerr"> </span>
+          <span class="error text-left simg-body4" id="phoneerr"> </span>
         </div>
       </div>
       <div class="form-row ">
         <div class="form-group col-md-6">
-          <label for="company">Company</label>
+          <label for="company" class="news-title simg-body2 text-left simg-black">Company</label>
           <input type="text" class="form-control" id="txtcompany" name="txtcompany" placeholder="Type your company">
-          <span class="error" id="companyerr"> </span>
+          <span class="error text-left simg-body4" id="companyerr"> </span>
         </div>
         <div class="form-group col-md-6">
-          <label for="txtsubject">Subject</label>
+          <label for="txtsubject" class="news-title simg-body2 text-left simg-black">Subject</label>
           <input type="text" class="form-control" id="txtsubject" name="txtsubject" placeholder="Type the subject">
-          <span class="error" id="subjecterr"> </span>
+          <span class="error text-left simg-body4" id="subjecterr"> </span>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-12">
-          <label for="message">Message</label>
-          <textarea class="form-control" id="txtmessage" name="txtmessage" rows="4" placeholder="Type the message"></textarea>
+          <label for="message" class="news-title simg-body2 text-left simg-black">Message</label>
+          <textarea class="form-control " id="txtmessage" name="txtmessage" rows="4" placeholder="Type the message"></textarea>
         </div>
       </div>
-      <button type="button" class="btn btn-primary" id="check-button">Send to us</button>
+      <div style="display: flex; justify-content: center;">
+      <button type="button" class="btn btn-primary" id="check-button">Contact us</button>
+    </div>
+      
       <% if (message) { %>
         <span id="message" style="color: green;"><%= message %></span>
     <% } %>

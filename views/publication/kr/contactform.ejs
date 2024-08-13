@@ -178,9 +178,13 @@
   });
 </script>
 <style>
+  label{
+    float: left;
+  }
   .error {
     color: #F65633;
     position: relative;
+    font-size: 14px;
   }
 
   input:focus {
@@ -190,44 +194,50 @@
 
 <div class="container-fluid " id="form-section">
   <div class="container mt-5">
-    <h2 class="text-center simg-black">Contact Us</h2>
+
     <form name="fcontact" method="post" action="/contactus-proAdd">
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="name">이름</label>
+          <label for="name" class="news-title simg-body2 text-left simg-black">이름</label>
           <input type="text" class="form-control" id="txtname" name="txtname" placeholder="이름 입력">
-          <span class="error" id="nameerr"> </span>
+          <span class="error ext-left simg-body4 " id="nameerr"> </span>
         </div>
         <div class="form-group col-md-4">
-          <label for="email">이메일</label>
+          <label for="email" class="news-title simg-body2 text-left simg-black">이메일</label>
           <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="이메일 입력">
-          <span class="error" id="emailerr"> </span>
+          <span class="error ext-left simg-body4 " id="emailerr"> </span>
         </div>
         <div class="form-group col-md-4">
-          <label for="phone">전화 번호</label>
+          <label for="phone"class="news-title simg-body2 text-left simg-black">전화 번호</label>
           <input type="tel" class="form-control" id="txtphone" name="txtphone" placeholder="전화 번호 입력">
-          <span class="error" id="phoneerr"> </span>
+          <span class="error ext-left simg-body4 " id="phoneerr"> </span>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="company">회사 이름</label>
+          <label for="company" class="news-title simg-body2 text-left simg-black">회사 이름</label>
           <input type="text" class="form-control" id="txtcompany" name="txtcompany" placeholder="회사 이름 입력">
-          <span class="error" id="companyerr"> </span>
+          <span class="error ext-left simg-body4 " id="companyerr"> </span>
         </div>
         <div class="form-group col-md-6">
-          <label for="txtsubject">제목</label>
+          <label for="txtsubject"  class="news-title simg-body2 text-left simg-black">제목</label>
           <input type="text" class="form-control" id="txtsubject" name="txtsubject" placeholder="제목 입력">
-          <span class="error" id="subjecterr"> </span>
+          <span class="error ext-left simg-body4 " id="subjecterr"> </span>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-12">
-          <label for="message">내용</label>
+          <label for="message" class="news-title simg-body2 text-left simg-black">내용</label>
           <textarea class="form-control" id="txtmessage" name="txtmessage" rows="4" placeholder="내용 입력"></textarea>
         </div>
       </div>
-      <button type="button" class="btn btn-primary" id="check-button">제출</button>
+     
+
+       
+      <div style="display: flex; justify-content: center;">
+        <button type="button" class="btn btn-primary" id="check-button">제출</button>
+      </div>
+      
       <% if (message) { %>
         <span id="message" style="color: green;">
           <%= message %>

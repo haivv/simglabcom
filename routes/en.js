@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
 	console.log("Index page");
 	var current_page = '';
 	const message = req.query.message;
-	var sqlClient = "SELECT * FROM client";
+	var sqlClient = "SELECT * FROM client ";
 	var sqlNews = "SELECT * FROM news ORDER BY news_id DESC";
 
 	database.query(sqlCat1, function (error, dataCat1) {

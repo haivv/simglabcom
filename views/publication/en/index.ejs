@@ -76,41 +76,37 @@
         <button class="button-arrow" id="news-next-button"><img src="../images/btn-arrow-right.png" alt="After-News"></button>
     </section>
 
-    <section class="client-container">
+    
+
+    <section class="client-container pb-5">
         <div class="section-title simg-heading4 text-center simg-black">OUR CLIENTS</div>
-        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">SimG Co., Ltd. collaborates with numerous brands around the world and provides customized 3D content solutions.</p>
-        <button class="button-arrow" id="client-prev-button"><img src="../images/btn-arrow-left.png" alt="Before-Logo"></button>
-        <div class="client-wrapper">
-            <ul class="client-carousel">
+        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">
+            SimG Co., Ltd. collaborates with numerous brands around the world and provides customized 3D content solutions.</p>
+        <button class="button-arrow swiper-button-prev simg-gray300" id="client-prev-button"></button>
+        <div class="swiper client-wrapper">
+            <div class="swiper-wrapper">
                 <% dataClient.forEach(function(client) { %>
-                <li class="client-logo"><img src="../uploads/client/<%= client.client_logo %>" alt="<%= client.client_name %>" title="<%= client.client_name %>"></li>
-                <% }); %>
-            </ul>
+                    <div class="swiper-slide"><img src="../uploads/client/<%= client.client_logo %>"
+                            alt="<%= client.client_name %>" title="<%= client.client_name %>"></div>
+                    <% }); %>
+            </div>
         </div>
-        <button class="button-arrow" id="client-next-button"><img src="/public/images/btn-arrow-right.png" alt="After-Logo"></button>
+        <button class="button-arrow swiper-button-next simg-gray300" id="client-next-button"></button>
     </section>
    
-    <section class="contact-container simg-page-bg ">
-       
-        <h2 class="section-title  simg-heading4 text-center simg-black">CONTACT US</h2>
-        <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">A prepared XR specialist consultant presents your future. </p>
-        <div class="row p-3">
-            <div class="contact-partner-item col  simg-bg-white">
-                <div class="contact-item-title simg-title3 text-left simg-black">Request for collaboration on selected projects</div>
-                <div class="contact-item-subMessage">Inquiry number: 052-221-3001/3007</div>
-                <div class="contact-item-subMessage">Email: simg@simglab.com</div>
+   
+    <div class="contact-title-bg simg-page-bg">
+        <section class="contact-container">
+            <div class="section-title simg-heading4 text-center simg-white">CONTACT US</div>
+            <p class="section-subtitle simg-body2 text-center simg-gray800 simg-opacity60">
+                A prepared XR specialist consultant presents your future.</p>
+
+            <div class="contact-form pt-4 pb-5 simg-bg-white">
+                <%- include('contactform') %>
+
             </div>
-            <div class="contact-product-item col  simg-bg-white">
-                <div class="contact-item-title simg-title3 text-left simg-black">Inquiry about introducing products and services</div>
-                <div class="contact-item-subMessage">Inquiry number: 052-221-3001/3007</div>
-                <div class="contact-item-subMessage">Email: simg@simglab.com</div>
-            </div>
-        </div>
-        <div class="contact-form pt-4 pb-5 simg-bg-white">
-            <%- include('contactform') %>
-            
-        </div>
-    </section>
+        </section>
+    </div>
   
     
     

@@ -178,9 +178,13 @@
   });
 </script>
 <style>
+   label{
+    float: left;
+  }
   .error {
     color: #F65633;
     position: relative;
+    font-size: 14px;
   }
 
   input:focus {
@@ -190,44 +194,47 @@
 
 <div class="container-fluid" id="form-section">
   <div class="container mt-5">
-    <h2 class="text-center simg-black">お問い合わせ</h2>
     <form name="fcontact" method="post" action="/ja/contactus-proAdd">
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="name">名前</label>
+          <label for="name" class="news-title simg-body2 text-left simg-black">名前</label>
           <input type="text" class="form-control" id="txtname" name="txtname" placeholder="名前を入力してください">
-          <span class="error" id="nameerr"> </span>
+          <span class="error ext-left simg-body4 " id="nameerr" > </span>
         </div>
         <div class="form-group col-md-4">
-          <label for="email">Eメール</label>
+          <label for="email" class="news-title simg-body2 text-left simg-black">Eメール</label>
           <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="メールアドレスを入力してください">
-          <span class="error" id="emailerr"> </span>
+          <span class="error ext-left simg-body4 " id="emailerr"> </span>
         </div>
         <div class="form-group col-md-4">
-          <label for="phone">電話番号</label>
+          <label for="phone" class="news-title simg-body2 text-left simg-black">電話番号</label>
           <input type="tel" class="form-control" id="txtphone" name="txtphone" placeholder="電話番号を入力してください">
-          <span class="error" id="phoneerr"> </span>
+          <span class="error ext-left simg-body4 " id="phoneerr"> </span>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="company">会社</label>
+          <label for="company" class="news-title simg-body2 text-left simg-black">会社</label>
           <input type="text" class="form-control" id="txtcompany" name="txtcompany" placeholder="会社名を入力してください">
-          <span class="error" id="companyerr"> </span>
+          <span class="error ext-left simg-body4 " id="companyerr"> </span>
         </div>
         <div class="form-group col-md-6">
-          <label for="txtsubject">主題</label>
+          <label for="txtsubject" class="news-title simg-body2 text-left simg-black">主題</label>
           <input type="text" class="form-control" id="txtsubject" name="txtsubject" placeholder="件名を入力してください">
-          <span class="error" id="subjecterr"> </span>
+          <span class="error ext-left simg-body4 " id="subjecterr"> </span>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-12">
-          <label for="message">メッセージ</label>
+          <label for="message" class="news-title simg-body2 text-left simg-black">メッセージ</label>
           <textarea class="form-control" id="txtmessage" name="txtmessage" rows="4" placeholder="メッセージを入力してください"></textarea>
         </div>
       </div>
-      <button type="button" class="btn btn-primary" id="check-button">送信</button>
+     
+      <div style="display: flex; justify-content: center;">
+        <button type="button" class="btn btn-primary" id="check-button">送信</button>
+      </div>
+      
       <% if (message) { %>
         <span id="message" style="color: green;">
           <%= message %>
