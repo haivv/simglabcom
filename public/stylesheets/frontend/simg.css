@@ -1433,8 +1433,9 @@
 }
 
 .contact-partner-item {
-    
+    margin-right: 20px;
     border-top: 4px solid var(--simgTangerine);
+    padding: 40px 40px !important;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
    
 }
