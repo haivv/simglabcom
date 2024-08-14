@@ -1,6 +1,6 @@
 <%- include('header') %>
 <style>
-  #addfile1,#addfile2,#addfile3,#addfile4 {
+  #addfile1,#addfile2,#addfile3,#addfile4,#addfile5  {
       display: none;
 
     }
@@ -83,6 +83,23 @@
       var fileInput = document.getElementById('myfile4');
       var fileName = fileInput.files[0].name;
       document.getElementById("pro_img4").value = fileName;
+      document.fsubmitfile.submit();
+    }
+ // Add product image 5
+ function addFileShow5() {
+      var modal = document.getElementById("addfile5");
+      modal.style.display = "block";
+    }
+    function closeBoxAddfile5() {
+      var modal = document.getElementById("addfile5");
+      modal.style.display = "none";
+    }
+    function hideAddFile5() {
+      var modal = document.getElementById("addfile5");
+      modal.style.display = "none";
+      var fileInput = document.getElementById('myfile5');
+      var fileName = fileInput.files[0].name;
+      document.getElementById("pro_img5").value = fileName;
       document.fsubmitfile.submit();
     }
 
@@ -177,6 +194,28 @@
     </div>
     <p class="d-flex flex-row-reverse">
       <button class='btn btn-primary mt-3' onclick="hideAddFile4()">업로드</button>
+      </form>
+    </p>
+  </div>
+</div>
+
+<!--show box to add image for product 5 -->
+<div id='addfile5' class='messBox'>
+  <div class='modalmess-content d-flex flex-column p-4'>
+    <div><button class=" btn btn-dark  " onclick='closeBoxAddfile5()'>X</button></div>
+    <p class="p-2 d-flex txtMess">원하는 이미지를 업로드해주세요. </p>
+    <div class="choosefile">
+      <form action="/admin/upload_product5" name="fsubmitfile" method="POST" enctype="multipart/form-data">
+        <input type="file" name="myfile5" id="myfile5" class="inputfile inputfile-6" accept="image/jpeg, image/png">
+
+        <label for="myfile5" id="myfile_left"><span id="hidfile5"></span> </label>
+        <label for="myfile5" id="myfile_select_btn">
+          <div class="btnfile" id="fileSelect"> 파일선택</div>
+        </label>
+        <script src="/javascripts/custom-file-input.js"></script>
+    </div>
+    <p class="d-flex flex-row-reverse">
+      <button class='btn btn-primary mt-3' onclick="hideAddFile5()">업로드</button>
       </form>
     </p>
   </div>
@@ -293,7 +332,16 @@
                 <input type="text" class="form-control" name="pro_img4" id="pro_img4" readonly>
               </td>
             </tr>
-
+            <tr>
+              <td class="">
+                <label for="patcer_image">Image5</label>
+              </td>
+              <td class="">
+                <span class="input-group-text strSize" id="inputGroup-sizing-default">이미지 &nbsp; <i class="fa fa-upload"
+                    style="font-size:18px" onclick="addFileShow5()"></i></span>
+                <input type="text" class="form-control" name="pro_img5" id="pro_img5" readonly>
+              </td>
+            </tr>
 
             <tr>
               <td class="">

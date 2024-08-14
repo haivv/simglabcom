@@ -233,6 +233,17 @@ router.post('/upload_product4', (req, res) => {
 
 });
 
+var upload_product5 = multer({ storage: storage_product }).single('myfile5');
+router.post('/upload_product5', (req, res) => {
+	upload_product5(req, res, function (err) {
+		if (err) {
+			return res.end("Error uploading file.");
+		}
+		else {
+		}
+	});
+
+});
 
 ////// END SET STORAGE PRODUCT
 
@@ -1678,18 +1689,19 @@ router.post('/product-proAdd', (req, res) => {
 	var dateString = year + '-' + month + '-' + day;
 
 
-	const {  selectOption, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4, pro_content,pro_content_en, pro_content_ja,type_classify, video_page } = req.body;
+	const {  selectOption, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_content,pro_content_en, pro_content_ja,type_classify, video_page } = req.body;
 	var pro_img12 = dateString + '_' + pro_img1;
 	var pro_img22 = dateString + '_' + pro_img2;
 	var pro_img32 = dateString + '_' + pro_img3;
 	var pro_img42 = dateString + '_' + pro_img4;
+	var pro_img52 = dateString + '_' + pro_img5;
 
 	var sql = `
 				INSERT INTO product
-				(cat_id, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4, pro_content,pro_content_en, pro_content_ja,type_classify, video_page )
-				VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
+				(cat_id, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_content,pro_content_en, pro_content_ja,type_classify, video_page )
+				VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 	// res.send(sql);
-	database.query(sql, [selectOption, pro_title, pro_title_en, pro_title_ja,pro_img12, pro_img22,pro_img32,pro_img42, pro_content,pro_content_en, pro_content_ja,type_classify, video_page], function (error, data2) {
+	database.query(sql, [selectOption, pro_title, pro_title_en, pro_title_ja,pro_img12, pro_img22,pro_img32,pro_img42,pro_img52, pro_content,pro_content_en, pro_content_ja,type_classify, video_page], function (error, data2) {
 		if (error) {
 			throw error;
 		}
@@ -1755,12 +1767,13 @@ router.post('/product-proUpdate', function (req, res, next) {
 	var day = ('0' + today.getDate()).slice(-2);
 	var dateString = year + '-' + month + '-' + day;
 
-	const { pro_id, selectOption, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4, pro_db_img1, pro_db_img2,pro_db_img3,pro_db_img4,  pro_content,pro_content_en, pro_content_ja,type_classify, video_page } = req.body;
+	const { pro_id, selectOption, pro_title, pro_title_en, pro_title_ja,pro_img1, pro_img2,pro_img3,pro_img4,pro_img5, pro_db_img1, pro_db_img2,pro_db_img3,pro_db_img4,pro_db_img5,   pro_content,pro_content_en, pro_content_ja,type_classify, video_page } = req.body;
 
 	var originalString1 = pro_db_img1.substring(11);
 	var originalString2 = pro_db_img2.substring(11);
 	var originalString3 = pro_db_img3.substring(11);
 	var originalString4 = pro_db_img4.substring(11);
+	var originalString5 = pro_db_img5.substring(11);
 
 	var pro_img12 = '';
 	if (pro_img1 === originalString1) {
@@ -1786,7 +1799,13 @@ router.post('/product-proUpdate', function (req, res, next) {
 	} else {
 		pro_img42 = dateString + '_' + pro_img4;
 	}
-
+	
+	var pro_img52 = '';
+	if (pro_img5 === originalString5) {
+		pro_img52 = pro_db_img5;
+	} else {
+		pro_img52 = dateString + '_' + pro_img5;
+	}
 
 	var sql = `
 	UPDATE product 
@@ -1798,6 +1817,7 @@ router.post('/product-proUpdate', function (req, res, next) {
 	pro_img2 = ?,
 	pro_img3 = ?,
 	pro_img4 = ?,
+	pro_img5 = ?,
 	pro_content = ?,
 	pro_content_en = ?,
 	pro_content_ja = ?,
@@ -1807,7 +1827,7 @@ router.post('/product-proUpdate', function (req, res, next) {
 	WHERE pro_id = "${pro_id}"
 	`;
 
-	database.query(sql, [ selectOption, pro_title, pro_title_en, pro_title_ja,pro_img12, pro_img22,pro_img32,pro_img42, pro_content,pro_content_en, pro_content_ja,type_classify, video_page], function (error) {
+	database.query(sql, [ selectOption, pro_title, pro_title_en, pro_title_ja,pro_img12, pro_img22,pro_img32,pro_img42,pro_img52, pro_content,pro_content_en, pro_content_ja,type_classify, video_page], function (error) {
 
 		if (error) {
 			throw error;

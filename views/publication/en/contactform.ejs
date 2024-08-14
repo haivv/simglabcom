@@ -12,8 +12,8 @@
     const txtsubject = document.getElementById("txtsubject");
     const checkButton = document.getElementById("check-button");
 
-    
-    
+
+
 
     // Sự kiện input và blur cho txtname
     txtname.addEventListener("input", validateName);
@@ -178,9 +178,10 @@
   });
 </script>
 <style>
-  label{
+  label {
     float: left;
   }
+
   .error {
     color: #F65633;
     position: relative;
@@ -190,11 +191,10 @@
   input:focus {
     outline: none;
   }
- 
 </style>
 
 <div class="container-fluid" id="form-section">
-  <div class="container mt-5"  >
+  <div class="container mt-5">
     <form name="fcontact" method="post" action="/en/contactus-proAdd">
       <div class="form-row  ">
         <div class="form-group col-md-4">
@@ -228,27 +228,30 @@
       <div class="form-row">
         <div class="form-group col-12">
           <label for="message" class="news-title simg-body2 text-left simg-black">Message</label>
-          <textarea class="form-control " id="txtmessage" name="txtmessage" rows="4" placeholder="Type the message"></textarea>
+          <textarea class="form-control " id="txtmessage" name="txtmessage" rows="4"
+            placeholder="Type the message"></textarea>
         </div>
       </div>
       <div style="display: flex; justify-content: center;">
-      <button type="button" class="btn btn-primary" id="check-button">Contact us</button>
-    </div>
-      
+        <button type="button" class="btn btn-primary" id="check-button">Contact us</button>
+      </div>
+
       <% if (message) { %>
-        <span id="message" style="color: green;"><%= message %></span>
-    <% } %>
+        <span id="message" style="color: green;">
+          <%= message %>
+        </span>
+        <% } %>
     </form>
 
   </div>
 </div>
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-      const messageElement = document.getElementById("message");
-      if (messageElement) {
-          setTimeout(function() {
-              messageElement.style.display = "none";
-          }, 5000); // 3 seconds
-      }
+  document.addEventListener("DOMContentLoaded", function () {
+    const messageElement = document.getElementById("message");
+    if (messageElement) {
+      setTimeout(function () {
+        messageElement.style.display = "none";
+      }, 5000); // 3 seconds
+    }
   });
 </script>
