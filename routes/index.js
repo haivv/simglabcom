@@ -350,7 +350,7 @@ router.get('/client', function (req, res, next) {
 					database.query(sqlCat5, function (error, dataCat5) {
 
 						var page = 1;
-						var sql = "SELECT * FROM client";
+						var sql = "SELECT * FROM client ";
 						database.query(sql, function (error, data) {
 							if (error) {
 								//throw error;
@@ -362,7 +362,7 @@ router.get('/client', function (req, res, next) {
 								var total_pages = Math.ceil(total_records / per_page_record);
 
 								var start_from = (page - 1) * per_page_record;
-								var sqlpage = `SELECT* FROM client ORDER BY client_id DESC LIMIT ${start_from}, ${per_page_record}`;
+								var sqlpage = `SELECT* FROM client LIMIT ${start_from}, ${per_page_record}`;
 
 								database.query(sqlpage, function (error, dataClient) {
 									if (error) {
