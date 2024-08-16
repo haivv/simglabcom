@@ -437,9 +437,7 @@
             justify-content: space-between;
     }
     .phone-number{
-        width: 100%;
-        flex: 1 1 calc(50% - 20px);
-        box-sizing: border-box;
+       clear: both;
     }
     
     .top-bar-info{
