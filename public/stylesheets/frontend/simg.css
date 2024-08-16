@@ -424,6 +424,21 @@
 }
 
 @media screen and (max-width: 710px) {
+    .social-buttons{
+        position: absolute;
+        display: none;
+        z-index: -100;
+
+    }
+    .top-bar-info{
+        padding-left: 10px;
+    }
+    .top-bar-container{
+        padding-left: 30px !important;
+        margin-left: 10px !important;
+        display: flex;
+        align-items: center;
+    }
     .swiper-slide img {
         width: 80% !important; 
     }
