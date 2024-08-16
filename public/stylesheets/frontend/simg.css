@@ -54,6 +54,17 @@
     border: 0px;
     border-radius: none;
 }
+
+#phone-number{
+    width: 100%;
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+}
+.phone-number{
+    margin-right: 10px;
+}
+
 @media screen and (min-width: 710px) and (max-width: 1600px) {
     .container,
     .header-container,
