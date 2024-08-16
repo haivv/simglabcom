@@ -430,11 +430,21 @@
         z-index: -100;
 
     }
+    #phone-number{
+        width: 100%;
+    }
+    #phone-number1{
+        width: 100%;
+    }
+    #phone-number2{
+        width: 100%;
+    }
     .top-bar-info{
-        padding-left: 10px;
+       
+        
     }
     .top-bar-container{
-        padding-left: 30px !important;
+       
         margin-left: 10px !important;
         display: flex;
         align-items: center;
