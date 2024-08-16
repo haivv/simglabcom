@@ -430,24 +430,33 @@
         z-index: -100;
 
     }
-    #phone-number{
+    /* #phone-number{
         width: 100%;
+        display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
     }
-    #phone-number1{
+    .phone-number{
         width: 100%;
-    }
-    #phone-number2{
-        width: 100%;
-    }
+        flex: 1 1 calc(50% - 20px);
+        box-sizing: border-box;
+    } */
+    
     .top-bar-info{
-       
+        margin: 0px !important;
+        padding: 0px 0px 0px 10px !important;
+        
+        margin: 10px;
+        flex: 1 1 calc(50% - 20px);
+        box-sizing: border-box;
         
     }
     .top-bar-container{
-       
-        margin-left: 10px !important;
+        margin: 0px !important;
+        padding: 0px !important;
         display: flex;
-        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
     .swiper-slide img {
         width: 80% !important; 
