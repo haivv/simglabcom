@@ -430,7 +430,7 @@
         z-index: -100;
 
     }
-    /* #phone-number{
+    #phone-number{
         width: 100%;
         display: flex;
             flex-wrap: wrap;
@@ -440,7 +440,7 @@
         width: 100%;
         flex: 1 1 calc(50% - 20px);
         box-sizing: border-box;
-    } */
+    }
     
     .top-bar-info{
         margin: 0px !important;
