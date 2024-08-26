@@ -66,15 +66,15 @@ var storage_new = multer.diskStorage({
 		callback(null, file.originalname);
 	}
 });
+
 var upload_new = multer({ storage: storage_new }).single('myfile');
-router.post('/upload_news', (req, res) => {
-	upload_new(req, res, function (err) {
-		if (err) {
-			return res.end("Error uploading file.");
-		}
-		else {
-		}
-	});
+	router.post('/upload_news', upload.single('myfile'), (req, res) => {
+	const file = req.file;
+	if (!file) {
+		console.error('No file uploaded');
+		return res.status(400).json({ error: { message: 'No file uploaded' } });
+	}
+	console.log(`File uploaded: ${file.filename}`);
 
 });
 
@@ -95,15 +95,17 @@ var storage_new = multer.diskStorage({
 		callback(null, file.originalname);
 	}
 });
-var upload_patcer = multer({ storage: storage_new }).single('myfile');
-router.post('/upload_patcer', (req, res) => {
-	upload_patcer(req, res, function (err) {
-		if (err) {
-			return res.end("Error uploading file.");
-		}
-		else {
-		}
-	});
+var upload_patcer = multer({ storage: storage_new });
+
+
+
+router.post('/upload_patcer', upload_patcer.single('fileToUpload'), (req, res) => {
+	const file = req.file;
+	if (!file) {
+		console.error('No file uploaded');
+		return res.status(400).json({ error: { message: 'No file uploaded' } });
+	}
+	console.log(`File uploaded: ${file.filename}`);
 
 });
 
