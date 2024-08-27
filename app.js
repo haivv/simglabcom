@@ -64,7 +64,7 @@ const storageSlideshow = multer.diskStorage({
       var month = ('0' + (today.getMonth() + 1)).slice(-2);
       var day = ('0' + today.getDate()).slice(-2);
       var dateString = year + '-' + month + '-' + day;
-      // Đảm bảo rằng tên file không bị thay đổi quá nhiều
+      //
       var fileName = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
       callback(null, fileName);
   }
