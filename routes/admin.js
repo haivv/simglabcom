@@ -74,6 +74,8 @@ router.post('/upload_news', upload_news.single('myfile'), (req, res) => {
 	if (!file) {
 		console.error('No file uploaded');
 		return res.status(400).json({ error: { message: 'No file uploaded' } });
+	}else{
+		return res.status(200).json({ error: { message: 'uploaded' } });
 	}
 	// console.log(`File uploaded: ${file.filename}`);
 	// res.status(200).json({
