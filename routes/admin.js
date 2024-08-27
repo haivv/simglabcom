@@ -13,7 +13,7 @@ var multer = require('multer');
 const dotenv = require('dotenv');
 const path = require('path');
 const { title } = require('process');
-dotenv.config({ path: path.join(__dirname, '../config', '.env') });
+//dotenv.config({ path: path.join(__dirname, '../config', '.env') });
 
 let accessToken = null;
 var accessTokenExp = '3600s'; //  Access Token 만료
