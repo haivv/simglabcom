@@ -70,11 +70,9 @@ router.post('/upload_news', upload.single('myfile'), (req, res) => {
 		console.error('No file uploaded');
 		return res.status(400).json({ error: { message: 'No file uploaded' } });
 	}
-	console.log(`File uploaded: ${file.filename}`);
-	res.status(200).json({
-		uploaded: true,
-		url: `/uploads/news/${file.filename}`
-	});
+	//console.log(`File uploaded: ${file.filename}`);
+	//res.send(`File uploaded: ${file.filename}`);
+	res.send("ok");
 });
 
 
