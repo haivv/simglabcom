@@ -84,7 +84,7 @@ router.post('/upload_news', upload.single('myfile'), (req, res) => {
 //// END SET STORAGE news
 
 //////// // SET STORAGE PATCER
-var storage = multer.diskStorage({
+var storage_patcer = multer.diskStorage({
 	destination: function (req, file, callback) {
 		callback(null, './public/uploads/patcer');
 	},
@@ -98,7 +98,7 @@ var storage = multer.diskStorage({
 		callback(null, file.originalname);
 	}
 });
-var upload_patcer = multer({ storage: storage });
+var upload_patcer = multer({ storage: storage_patcer });
 
 
 
@@ -145,7 +145,7 @@ router.post('/upload_client', (req, res) => {
 
 
 // //////// // SET STORAGE PARTNERSHIP
-var storage_new = multer.diskStorage({
+var storage_partnership = multer.diskStorage({
 	destination: function (req, file, callback) {
 		callback(null, './public/uploads/partnership');
 	},
@@ -159,7 +159,7 @@ var storage_new = multer.diskStorage({
 		callback(null, file.originalname);
 	}
 });
-var upload_partnership = multer({ storage: storage_new }).single('myfile');
+var upload_partnership = multer({ storage: storage_partnership }).single('myfile');
 router.post('/upload_partnership', (req, res) => {
 	upload_new(req, res, function (err) {
 		if (err) {
