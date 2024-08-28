@@ -86,7 +86,7 @@ router.post('/upload_news', upload.single('myfile'), (req, res) => {
 //////// // SET STORAGE PATCER
 var storage_patcer = multer.diskStorage({
 	destination: function (req, file, callback) {
-		callback(null, './public/uploads/patcer');
+		callback(null, '../public/uploads/patcer');
 	},
 	filename: function (req, file, callback) {
 		var today = new Date();
@@ -102,7 +102,7 @@ var upload_patcer = multer({ storage: storage_patcer });
 
 
 
-router.post('/upload_patcer', upload_patcer.single('fileToUpload'), (req, res) => {
+router.post('/upload_patcer', upload_patcer.single('myfile'), (req, res) => {
 	const file = req.file;
 	if (!file) {
 		console.error('No file uploaded');
@@ -161,7 +161,7 @@ var storage_partnership = multer.diskStorage({
 });
 var upload_partnership = multer({ storage: storage_partnership }).single('myfile');
 router.post('/upload_partnership', (req, res) => {
-	upload_new(req, res, function (err) {
+	upload_partnership(req, res, function (err) {
 		if (err) {
 			return res.end("Error uploading file.");
 		}
