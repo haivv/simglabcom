@@ -63,7 +63,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-
 // Endpoint to upload image
 router.post('/upload_news', upload.single('myfile'), (req, res) => {
 	const file = req.file;
@@ -72,10 +71,10 @@ router.post('/upload_news', upload.single('myfile'), (req, res) => {
 		return res.status(400).json({ error: { message: 'No file uploaded' } });
 	}
 	console.log(`File uploaded: ${file.filename}`);
-	// res.status(200).json({
-	// 	uploaded: true,
-	// 	url: `/uploads/${file.filename}`
-	// });
+	res.status(200).json({
+		uploaded: true,
+		url: `/uploads/news/${file.filename}`
+	});
 });
 
 
