@@ -57,7 +57,14 @@ const storage = multer.diskStorage({
 		cb(null, path.join(__dirname, '../public/uploads/news'));
 	},
 	filename: (req, file, cb) => {
-		cb(null, Date.now() + '-' + file.originalname);
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var day = ('0' + today.getDate()).slice(-2);
+		var dateString = year + '-' + month + '-' + day;
+		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
+
+		cb(null, file.originalname);
 	}
 });
 
