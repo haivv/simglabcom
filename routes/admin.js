@@ -84,33 +84,34 @@ router.post('/upload_news', upload.single('myfile'), (req, res) => {
 //// END SET STORAGE news
 
 //////// // SET STORAGE PATCER
-var storage_patcer = multer.diskStorage({
-	destination: function (req, file, callback) {
-		callback(null, '../public/uploads/patcer');
+const storage_patcer = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, path.join(__dirname, '../public/uploads/patcer'));
 	},
-	filename: function (req, file, callback) {
+	filename: (req, file, cb) => {
 		var today = new Date();
 		var year = today.getFullYear();
 		var month = ('0' + (today.getMonth() + 1)).slice(-2);
 		var day = ('0' + today.getDate()).slice(-2);
 		var dateString = year + '-' + month + '-' + day;
 		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
-		callback(null, file.originalname);
+
+		cb(null, file.originalname);
 	}
 });
-var upload_patcer = multer({ storage: storage_patcer });
 
+const upload_patcer = multer({ storage: storage_patcer });
 
-
+// Endpoint to upload image
 router.post('/upload_patcer', upload_patcer.single('myfile'), (req, res) => {
 	const file = req.file;
 	if (!file) {
 		console.error('No file uploaded');
 		return res.status(400).json({ error: { message: 'No file uploaded' } });
 	}
-	console.log(`File uploaded: ${file.filename}`);
 
 });
+
 
 ////// END SET STORAGE PATCER
 
