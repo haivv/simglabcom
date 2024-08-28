@@ -77,183 +77,180 @@ router.post('/upload_news', upload.single('myfile'), (req, res) => {
 		console.error('No file uploaded');
 		return res.status(400).json({ error: { message: 'No file uploaded' } });
 	}
-	//console.log(`File uploaded: ${file.filename}`);
-	//res.send(`File uploaded: ${file.filename}`);
-//	res.send("ok");
 
 });
 
 
-////// END SET STORAGE news
+//// END SET STORAGE news
 
-// //////// // SET STORAGE PATCER
-// var storage = multer.diskStorage({
-// 	destination: function (req, file, callback) {
-// 		callback(null, './public/uploads/patcer');
-// 	},
-// 	filename: function (req, file, callback) {
-// 		var today = new Date();
-// 		var year = today.getFullYear();
-// 		var month = ('0' + (today.getMonth() + 1)).slice(-2);
-// 		var day = ('0' + today.getDate()).slice(-2);
-// 		var dateString = year + '-' + month + '-' + day;
-// 		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
-// 		callback(null, file.originalname);
-// 	}
-// });
-// var upload_patcer = multer({ storage: storage });
-
-
-
-// router.post('/upload_patcer', upload_patcer.single('fileToUpload'), (req, res) => {
-// 	const file = req.file;
-// 	if (!file) {
-// 		console.error('No file uploaded');
-// 		return res.status(400).json({ error: { message: 'No file uploaded' } });
-// 	}
-// 	console.log(`File uploaded: ${file.filename}`);
-
-// });
-
-// ////// END SET STORAGE PATCER
-
-// // //////// // SET STORAGE CLIENT
-// var storage_client = multer.diskStorage({
-// 	destination: function (req, file, callback) {
-// 		callback(null, './public/uploads/client');
-// 	},
-// 	filename: function (req, file, callback) {
-// 		var today = new Date();
-// 		var year = today.getFullYear();
-// 		var month = ('0' + (today.getMonth() + 1)).slice(-2);
-// 		var day = ('0' + today.getDate()).slice(-2);
-// 		var dateString = year + '-' + month + '-' + day;
-// 		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
-// 		callback(null, file.originalname);
-// 	}
-// });
-// var upload_client = multer({ storage: storage_client }).single('myfile');
-// router.post('/upload_client', (req, res) => {
-// 	upload_client(req, res, function (err) {
-// 		if (err) {
-// 			return res.end("Error uploading file.");
-// 		}
-// 		else {
-// 		}
-// 	});
-
-// });
-
-// ////// END SET STORAGE PATCER
+//////// // SET STORAGE PATCER
+var storage = multer.diskStorage({
+	destination: function (req, file, callback) {
+		callback(null, './public/uploads/patcer');
+	},
+	filename: function (req, file, callback) {
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var day = ('0' + today.getDate()).slice(-2);
+		var dateString = year + '-' + month + '-' + day;
+		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
+		callback(null, file.originalname);
+	}
+});
+var upload_patcer = multer({ storage: storage });
 
 
-// // //////// // SET STORAGE PARTNERSHIP
-// var storage_new = multer.diskStorage({
-// 	destination: function (req, file, callback) {
-// 		callback(null, './public/uploads/partnership');
-// 	},
-// 	filename: function (req, file, callback) {
-// 		var today = new Date();
-// 		var year = today.getFullYear();
-// 		var month = ('0' + (today.getMonth() + 1)).slice(-2);
-// 		var day = ('0' + today.getDate()).slice(-2);
-// 		var dateString = year + '-' + month + '-' + day;
-// 		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
-// 		callback(null, file.originalname);
-// 	}
-// });
-// var upload_partnership = multer({ storage: storage_new }).single('myfile');
-// router.post('/upload_partnership', (req, res) => {
-// 	upload_new(req, res, function (err) {
-// 		if (err) {
-// 			return res.end("Error uploading file.");
-// 		}
-// 		else {
-// 		}
-// 	});
 
-// });
+router.post('/upload_patcer', upload_patcer.single('fileToUpload'), (req, res) => {
+	const file = req.file;
+	if (!file) {
+		console.error('No file uploaded');
+		return res.status(400).json({ error: { message: 'No file uploaded' } });
+	}
+	console.log(`File uploaded: ${file.filename}`);
 
-// ////// END SET STORAGE PARTNERSHIP
+});
 
-// // //////// // SET STORAGE Product
+////// END SET STORAGE PATCER
 
-// var storage_product = multer.diskStorage({
-// 	destination: function (req, file, callback) {
-// 		callback(null, './public/uploads/product');
-// 	},
-// 	filename: function (req, file, callback) {
-// 		var today = new Date();
-// 		var year = today.getFullYear();
-// 		var month = ('0' + (today.getMonth() + 1)).slice(-2);
-// 		var day = ('0' + today.getDate()).slice(-2);
-// 		var dateString = year + '-' + month + '-' + day;
-// 		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
-// 		callback(null, file.originalname);
-// 	}
-// });
-// var upload_product1 = multer({ storage: storage_product }).single('myfile1');
-// router.post('/upload_product1', (req, res) => {
-// 	upload_product1(req, res, function (err) {
-// 		if (err) {
-// 			return res.end("Error uploading file.");
-// 		}
-// 		else {
-// 		}
-// 	});
+// //////// // SET STORAGE CLIENT
+var storage_client = multer.diskStorage({
+	destination: function (req, file, callback) {
+		callback(null, './public/uploads/client');
+	},
+	filename: function (req, file, callback) {
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var day = ('0' + today.getDate()).slice(-2);
+		var dateString = year + '-' + month + '-' + day;
+		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
+		callback(null, file.originalname);
+	}
+});
+var upload_client = multer({ storage: storage_client }).single('myfile');
+router.post('/upload_client', (req, res) => {
+	upload_client(req, res, function (err) {
+		if (err) {
+			return res.end("Error uploading file.");
+		}
+		else {
+		}
+	});
 
-// });
+});
+
+////// END SET STORAGE PATCER
 
 
-// var upload_product2 = multer({ storage: storage_product }).single('myfile2');
-// router.post('/upload_product2', (req, res) => {
-// 	upload_product2(req, res, function (err) {
-// 		if (err) {
-// 			return res.end("Error uploading file.");
-// 		}
-// 		else {
-// 		}
-// 	});
+// //////// // SET STORAGE PARTNERSHIP
+var storage_new = multer.diskStorage({
+	destination: function (req, file, callback) {
+		callback(null, './public/uploads/partnership');
+	},
+	filename: function (req, file, callback) {
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var day = ('0' + today.getDate()).slice(-2);
+		var dateString = year + '-' + month + '-' + day;
+		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
+		callback(null, file.originalname);
+	}
+});
+var upload_partnership = multer({ storage: storage_new }).single('myfile');
+router.post('/upload_partnership', (req, res) => {
+	upload_new(req, res, function (err) {
+		if (err) {
+			return res.end("Error uploading file.");
+		}
+		else {
+		}
+	});
 
-// });
+});
 
-// var upload_product3 = multer({ storage: storage_product }).single('myfile3');
-// router.post('/upload_product3', (req, res) => {
-// 	upload_product3(req, res, function (err) {
-// 		if (err) {
-// 			return res.end("Error uploading file.");
-// 		}
-// 		else {
-// 		}
-// 	});
+////// END SET STORAGE PARTNERSHIP
 
-// });
+// //////// // SET STORAGE Product
 
-// var upload_product4 = multer({ storage: storage_product }).single('myfile4');
-// router.post('/upload_product4', (req, res) => {
-// 	upload_product4(req, res, function (err) {
-// 		if (err) {
-// 			return res.end("Error uploading file.");
-// 		}
-// 		else {
-// 		}
-// 	});
+var storage_product = multer.diskStorage({
+	destination: function (req, file, callback) {
+		callback(null, './public/uploads/product');
+	},
+	filename: function (req, file, callback) {
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var day = ('0' + today.getDate()).slice(-2);
+		var dateString = year + '-' + month + '-' + day;
+		file.originalname = dateString + '_' + Buffer.from(file.originalname, 'latin1').toString('utf8');
+		callback(null, file.originalname);
+	}
+});
+var upload_product1 = multer({ storage: storage_product }).single('myfile1');
+router.post('/upload_product1', (req, res) => {
+	upload_product1(req, res, function (err) {
+		if (err) {
+			return res.end("Error uploading file.");
+		}
+		else {
+		}
+	});
 
-// });
+});
 
-// var upload_product5 = multer({ storage: storage_product }).single('myfile5');
-// router.post('/upload_product5', (req, res) => {
-// 	upload_product5(req, res, function (err) {
-// 		if (err) {
-// 			return res.end("Error uploading file.");
-// 		}
-// 		else {
-// 		}
-// 	});
 
-// });
+var upload_product2 = multer({ storage: storage_product }).single('myfile2');
+router.post('/upload_product2', (req, res) => {
+	upload_product2(req, res, function (err) {
+		if (err) {
+			return res.end("Error uploading file.");
+		}
+		else {
+		}
+	});
 
-////// END SET STORAGE PRODUCT
+});
+
+var upload_product3 = multer({ storage: storage_product }).single('myfile3');
+router.post('/upload_product3', (req, res) => {
+	upload_product3(req, res, function (err) {
+		if (err) {
+			return res.end("Error uploading file.");
+		}
+		else {
+		}
+	});
+
+});
+
+var upload_product4 = multer({ storage: storage_product }).single('myfile4');
+router.post('/upload_product4', (req, res) => {
+	upload_product4(req, res, function (err) {
+		if (err) {
+			return res.end("Error uploading file.");
+		}
+		else {
+		}
+	});
+
+});
+
+var upload_product5 = multer({ storage: storage_product }).single('myfile5');
+router.post('/upload_product5', (req, res) => {
+	upload_product5(req, res, function (err) {
+		if (err) {
+			return res.end("Error uploading file.");
+		}
+		else {
+		}
+	});
+
+});
+
+//// END SET STORAGE PRODUCT
 
 
 /* GET home page. */
