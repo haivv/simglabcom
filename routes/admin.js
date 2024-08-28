@@ -72,7 +72,7 @@ router.post('/upload_news', upload.single('myfile'), (req, res) => {
 	}
 	//console.log(`File uploaded: ${file.filename}`);
 	//res.send(`File uploaded: ${file.filename}`);
-	res.send("ok");
+//	res.send("ok");
 });
 
 
