@@ -298,7 +298,7 @@ router.post('/check-login', (req, res) => {
 			} else {
 				loginResult = { message: 'login fail' };
 				//res.status(401).json({ success: false, message: 'Invalid username or password' });
-				res.redirect('/admin/login-fail');
+				res.redirect('/admin');
 			}
 		}
 	});
