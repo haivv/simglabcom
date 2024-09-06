@@ -338,10 +338,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table simglabcom.user: ~3 rows (approximately)
+-- Dumping data for table simglabcom.user: ~1 rows (approximately)
 REPLACE INTO `user` (`user_id`, `username`, `password`) VALUES
-	(1, 'admin2', 'Simg@123'),
-	(2, 'admin', 'e10adc3949ba59abbe56e057f20f883e'),
 	(4, 'manager', 'ae009a0860256348afa3dfb104bfa649');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
